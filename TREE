@@ -1,0 +1,104 @@
+.
+├── Applications
+│   ├── EarthScience
+│   │   ├── Geology
+│   │   └── Seismology
+│   ├── HealthCare
+│   │   ├── Bioinformatics
+│   │   └── Genomics
+│   └── Retailer
+├── CHANGES.txt
+├── LICENSE
+├── NOTICE
+├── README.md
+├── TREE
+├── bigds
+├── bin
+│   └── bigds-shell
+├── common
+├── conf
+│   └── bigds-env.sh.template
+├── core
+│   └── src
+│       ├── main
+│       │   └── org
+│       │       └── apache
+│       │           └── bigds
+│       │               ├── learning
+│       │               │   ├── classication
+│       │               │   ├── recommendation
+│       │               │   │   └── TensorFact
+│       │               │   │       ├── ALS-WR
+│       │               │   │       └── PSGD
+│       │               │   └── regression
+│       │               ├── linalg
+│       │               │   └── matrix
+│       │               ├── mining
+│       │               │   ├── clustering
+│       │               │   ├── feature
+│       │               │   └── fim
+│       │               │       ├── Apriori
+│       │               │       └── FPGrowth
+│       │               ├── science
+│       │               │   ├── fft
+│       │               │   └── nbody
+│       │               │       ├── Direct
+│       │               │       │   ├── Astro
+│       │               │       │   └── MD
+│       │               │       └── Treecode
+│       │               ├── stat
+│       │               │   ├── chi-square
+│       │               │   ├── fisher
+│       │               │   └── wilcox
+│       │               └── util
+│       └── test
+├── docs
+├── examples
+│   └── src
+│       └── main
+│           └── org
+│               └── apache
+│                   └── bigds
+│                       └── examples
+│                           └── core
+│                               ├── learning
+│                               ├── linalg
+│                               ├── mining
+│                               │   └── fim
+│                               │       ├── distAprioriTest.scala
+│                               │       └── distFPGrowthTest.scala
+│                               ├── science
+│                               │   └── nbody
+│                               └── stat
+├── lib
+├── logs
+├── project
+│   ├── Build.scala
+│   ├── build.properties
+│   ├── plugins.sbt
+│   └── project
+├── repl
+│   └── src
+│       ├── main
+│       │   └── org
+│       │       └── apache
+│       │           └── bigds
+│       │               └── repl
+│       │                   └── src
+│       │                       ├── main
+│       │                       │   └── org
+│       │                       │       └── apache
+│       │                       │           └── bigds
+│       │                       │               └── repl
+│       │                       │                   ├── BigdsCommandLine.scala
+│       │                       │                   ├── BigdsILoop.scala
+│       │                       │                   └── Main.scala
+│       │                       └── test
+│       └── test
+├── sbt
+│   ├── sbt
+│   └── sbt-launch-lib.bash
+├── sql
+└── tools
+
+84 directories, 17 files
