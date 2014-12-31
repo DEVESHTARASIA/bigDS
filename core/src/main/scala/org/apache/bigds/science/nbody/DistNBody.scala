@@ -80,7 +80,7 @@ trait DistNBody extends Serializable with Logging{
 
       if (k % checkPointThreshold == (checkPointThreshold - 1) || k == cycles - 1) {
         // Cut the lineage ! To prevent from StackOverFlowError
-        parInfo.checkpoint()
+//        parInfo.checkpoint()
         parInfo.count()
 
 //        parInfo.saveAsTextFile(pathRDD)

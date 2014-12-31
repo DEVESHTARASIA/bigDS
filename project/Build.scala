@@ -3,7 +3,11 @@ import Keys._
 
 object Build extends Build {
 
-  lazy val root = project.in(file(".")).aggregate(core,repl)
+  lazy val root = project.in(file(".")).aggregate(core,repl).settings(
+    organization       := "org.apache",
+    version            := "0.0.1",
+    scalaVersion       := "2.10.4"
+  )
 
   lazy val core = project.settings(
     organization       := "org.apache",
@@ -25,7 +29,11 @@ object Build extends Build {
                        "Spray Repository" at "http://repo.spray.cc/")
   )
 
-  lazy val repl = project.dependsOn(core)
+  lazy val repl = project.dependsOn(core).settings(
+    organization       := "org.apache",
+    version            := "0.0.1",
+    scalaVersion       := "2.10.4"
+  )
 
 }
 
