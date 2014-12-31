@@ -16,9 +16,11 @@
  */
 package org.apache.bigds.science.nbody
 
+import com.esotericsoftware.kryo.Kryo
 import org.apache.spark.Logging
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.linalg.Vector
+import org.apache.spark.serializer.KryoRegistrator
 import scala.math._
 
 
@@ -151,4 +153,11 @@ trait DistNBody extends Serializable with Logging{
    */
   private [nbody] def checkWrite(pathRDD: String, vectors: Array[Vector]): Boolean = { false }
 
+}
+
+
+class NbodyRegistrator extends KryoRegistrator{
+  override def registerClasses(kryo: Kryo){
+    kryo.register(classOf[Vector])
+  }
 }

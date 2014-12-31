@@ -1,8 +1,10 @@
 package org.apache.bigds.science.nbody
 
+import com.esotericsoftware.kryo.Kryo
 import org.apache.bigds.science.nbody.Direct.DistNBodyDirectMD
 import org.apache.spark._
 import org.apache.spark.mllib.linalg.{Vectors, Vector}
+import org.apache.spark.serializer.KryoRegistrator
 
 import scala.math._
 
@@ -30,10 +32,12 @@ object DistNBodyDirectMDTest{
     val conf = new SparkConf()
       .setAppName("SparkNbodyBF")
       .setMaster(args(0))
-      .set("spark.executor.memory", "120g")
-      .set("spark.cores.max", "224")
+      .set("spark.executor.memory", "160g")
+      .set("spark.cores.max", "256")
+      .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+      .set("spark.kryo.registrator", "org.apache.bigds.science.nbody.NbodyRegistrator")
     val sc = new SparkContext(conf)
-//    sc.setCheckpointDir(args(1))
+    sc.setCheckpointDir(args(1))
 
     val nParticles = args(2).toInt * args(2).toInt * args(2).toInt
     val cycles = args(3).toInt
@@ -64,3 +68,4 @@ object DistNBodyDirectMDTest{
 
   }
 }
+
