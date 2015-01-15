@@ -1,4 +1,4 @@
-package org.apache.bigds.association.PFP
+package org.apache.bigds.mining.association.PFP
 
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.HashMap
