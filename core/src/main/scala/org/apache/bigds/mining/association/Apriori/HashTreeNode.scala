@@ -1,4 +1,4 @@
-package org.apache.bigds.association.Apriori
+package org.apache.bigds.mining.association.Apriori
 
 import scala.collection.mutable.ArrayBuffer
 

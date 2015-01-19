@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.bigds.association.Apriori
+package org.apache.bigds.mining.association.Apriori
 
 import org.apache.spark.rdd.RDD
 import scala.collection.mutable.ArrayBuffer
