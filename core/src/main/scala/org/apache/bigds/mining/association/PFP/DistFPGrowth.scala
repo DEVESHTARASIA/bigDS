@@ -134,8 +134,8 @@ class DistFPGrowth (
 
     while (iterator.hasNext) { // process the partition to build a prefix tree (with prefixTree as root)
       val arr = iterator.next
-      println(s"i am here!!!")
-      println(s"record = [" + arr.mkString(",") + "]")
+//      println(s"i am here!!!")
+//      println(s"record = [" + arr.mkString(",") + "]")
 
       var node = prefixTree
       arr.foreach { item =>
@@ -145,8 +145,8 @@ class DistFPGrowth (
       }
     }
 
-    println(s"headTable=" + headTable.map{ _.length }.mkString(","))
-    println(s"hashCount=" + hashCount.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
+//    println(s"headTable=" + headTable.map{ _.length }.mkString(","))
+//    println(s"hashCount=" + hashCount.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 
     var beginx = 0
     getGroupScopes(numF1Items).zipWithIndex.map { case (scope, groupId) =>
@@ -212,7 +212,7 @@ class DistFPGrowth (
 //      println(s"nodeToCountOrIndex = " + nodeToCountOrIndex.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 //      println(s"groupId = " + groupId)
 //      println(s"rootIndex = " + rootIndex)
-      println(s"groupId = " + groupId + s", rootIndex = " + rootIndex + s", serialTree = " + serialTree.map(_.toString).mkString(" "))
+//      println(s"groupId = " + groupId + s", rootIndex = " + rootIndex + s", serialTree = " + serialTree.map(_.toString).mkString(" "))
 
       (groupId, (rootIndex, serialTree))
     }.toIterator
@@ -309,7 +309,7 @@ class DistFPGrowth (
     val f1List = calcF1Items(data)
     println(s"f1List length = " + f1List.length + ", [" + f1List.mkString + "]")
     val f1Map = buildF1Map(f1List)
-    println(s"f1Map length = " + f1Map.size + ", [" + f1Map.toArray.mkString + "]")
+//    println(s"f1Map length = " + f1Map.size + ", [" + f1Map.toArray.mkString + "]")
 
     numF1Items = f1List.length
     val bcF1List = sc.broadcast(f1List)

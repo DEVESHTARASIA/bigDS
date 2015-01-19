@@ -35,13 +35,13 @@ object DistFPGrowthTest {
 
     println("---------------------------------------------------------")
     println("Number of frequent itemsets = " + count)
-
+/*
     println("---------------------------------------------------------")
     println("Frequent Itemsets")
     rdd.collect.foreach { case (itemsets, cnt) =>
       println("<" + itemsets + ", " + cnt + ">")
     }
-
+*/
     //Stop SparkContext.
     sc.stop()
   }
