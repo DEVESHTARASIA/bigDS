@@ -16,6 +16,6 @@ class IndexNode(
        var sibling: Int = -1) extends Serializable {
 
   def printInfo() : String = {
-    "[" + item + ", " + count + ", " + child + ", " + sibling + "]"
+    s"[" + item + s", " + count + s", " + child + s", " + sibling + s"]"
   }
 }

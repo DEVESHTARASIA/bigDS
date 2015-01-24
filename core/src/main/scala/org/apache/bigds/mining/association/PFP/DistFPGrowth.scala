@@ -27,7 +27,7 @@ class DistFPGrowth (
     private var numGroups: Int) extends FrequentItemsetMining {
 
   private var numF1Items = -1
-  private var minSupport = -1
+  private var minSupport = -1.0
 
   /** Set the support threshold. Support threshold must be defined on interval [0, 1]. Default: 0. */
   def setSupportThreshold(supportThreshold: Double): this.type = {
@@ -49,9 +49,14 @@ class DistFPGrowth (
     DistFPGrowth.DEFAULT_SPLITTER_PATTERN,
     DistFPGrowth.DEFAULT_NUM_GROUPS
   )
-
+/*
   def getOrCalcMinSupport(data: RDD[String]): Int = {
     if (minSupport < 0) minSupport = (data.count() * supportThreshold).toInt
+    minSupport
+  }
+*/
+  def getOrCalcMinSupport(data: RDD[String]): Double = {
+    if (minSupport < 0) minSupport = supportThreshold * data.count()
     minSupport
   }
 
@@ -59,6 +64,24 @@ class DistFPGrowth (
   def setNumGroups(numGroups: Int): this.type = {
     this.numGroups = numGroups
     this
+  }
+
+  def calcGroupScopes(numItems: Int) : Array[(Int, Int)] = {
+
+    if (numItems < numGroups) Range(0, numItems).map{ startx => (startx, startx + 1) }.toArray
+    else {
+      val avgItems = numItems / numGroups
+      val residual = numItems % numGroups
+
+      var startx = 0
+      var interv = 0
+      Range(0, numGroups).map{ gid =>
+        if (gid < residual) interv = avgItems + 1
+        else interv = avgItems
+        startx += interv
+        (startx - interv, startx)
+      }.toArray
+    }
   }
 
   def getGroupScopes(numItems: Int): Array[Int] = {
@@ -148,6 +171,7 @@ class DistFPGrowth (
 //    println(s"headTable=" + headTable.map{ _.length }.mkString(","))
 //    println(s"hashCount=" + hashCount.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 
+    // get nonzero group with group scope (i.e., from prex - scope)
     var beginx = 0
     getGroupScopes(numF1Items).zipWithIndex.map { case (scope, groupId) =>
       var numNoneZero = 0
@@ -163,11 +187,12 @@ class DistFPGrowth (
     .map { case(numNoneZero, startx, scope, groupId) =>
       val nodeToCountOrIndex = new HashMap[ItemNode, Int]()
       for (item <- startx until scope) {
-        // hash all potential up-able entries
+        // hash and count all potential up-able entries
         headTable(item).toArray.foreach { nd => nodeToCountOrIndex.update(nd, hashCount(nd))}
       }
 //      println(s"nodeToCountOrIndex = " + nodeToCountOrIndex.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 
+      // hash and count all non-group entries along the path from group id to root
       nodeToCountOrIndex.toArray.foreach { case (bottom, xc) => // check each potential entry for going up (till root)
         var up = bottom.parent
         var cnt = -1
@@ -187,6 +212,7 @@ class DistFPGrowth (
           up = up.parent
         }
       }
+//      println(s"nodeToCountOrIndex = " + nodeToCountOrIndex.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 
       // generate tree nodes for serialization, meanwhile change map (node->cnt) to (node->index)
       var i = 0
@@ -199,7 +225,7 @@ class DistFPGrowth (
       }
 
       // set up child and sibling indices for each serialized node
-      nodeToCountOrIndex.foreach { case (node, nodeIndex) =>
+      nodeToCountOrIndex.toArray.foreach { case (node, nodeIndex) =>
         if (nodeIndex != rootIndex) {
           val p = serialTree(nodeToCountOrIndex(node.parent))
           if (p.child < 0) p.child = nodeIndex
@@ -209,10 +235,10 @@ class DistFPGrowth (
           }
         }
       }
-//      println(s"nodeToCountOrIndex = " + nodeToCountOrIndex.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
+//      println(s"***nodeToCountOrIndex = " + nodeToCountOrIndex.toArray.map{ case(n, c) => "(" + n.item.toString + ", " + c + ")" }.mkString(" "))
 //      println(s"groupId = " + groupId)
 //      println(s"rootIndex = " + rootIndex)
-//      println(s"groupId = " + groupId + s", rootIndex = " + rootIndex + s", serialTree = " + serialTree.map(_.toString).mkString(" "))
+//      println(s"groupId = " + groupId + s", rootIndex = " + rootIndex + s", serialTree = " + serialTree.map(_.printInfo()).mkString(" "))
 
       (groupId, (rootIndex, serialTree))
     }.toIterator
@@ -273,7 +299,7 @@ class DistFPGrowth (
 
       // repeatedly process all child nodes
       var childIndex = indexTree(curIndex).child
-      while (childIndex > 0) {
+      while (childIndex >= 0) {
 
         val childIndexNode = indexTree(childIndex)
 
@@ -316,7 +342,14 @@ class DistFPGrowth (
     val bcF1Map = sc.broadcast(f1Map)
 
     // mining frequent item sets
-    val g = data.map(_.split(splitterPattern).filter{ item => bcF1Map.value.contains(item) }.map(bcF1Map.value(_)).sortWith(_ < _))
+//    val g = data.map(_.split(splitterPattern).filter{ item => bcF1Map.value.contains(item) }.map(bcF1Map.value(_)).sortWith(_ < _))
+/*
+    val g =
+*/
+      data.map(_.split(splitterPattern).filter{ item => bcF1Map.value.contains(item) })  // split and transform to internal item code
+                .filter(_.length>0)
+                .map{ arr => arr.map(bcF1Map.value(_)) }
+                .map{ arr => arr.sortWith(_ < _) }
 /*    
     val f = e.collect
     println(s"data size = " + f.length)
@@ -325,20 +358,18 @@ class DistFPGrowth (
     val g = e
 */
       .mapPartitions { partition => genGroupedPrefixTree(partition) }
-      .groupByKey().persist()
-    println("groupByKey size: =" + g.count())
-/*
-    println("groupByKey size: =" + g.count)
+      .groupByKey()
+/*      
 
-    g.map{ case(gid, serialTrees) =>
-      serialTrees.toArray.map{ case(rid, arr) =>
-        "(" + gid + ", (" + rid + ", " + arr.map(_.printInfo()).mkString(" ") + "))"
-      }
-    }
-    .collect
-    .map(println)
+    println("groupByKey size: =" + g.count())
+
+    g.flatMap{ case(gid, serialTrees) => serialTrees.toArray.map((gid, _)) }
+     .collect
+     .map{ case(gid, stree) => println(s"(" + gid + s", (" + stree._1 + s", " + stree._2.map(_.printInfo()).mkString(" ") + s"))") }
+
+    g
 */
-    g.flatMap { case (gid, serialTrees) => genGroupFreqItemsets(gid, serialTrees)}
+     .flatMap { case (gid, serialTrees) => genGroupFreqItemsets(gid, serialTrees) }
      .map { case (itemset, cnt) => (itemset.map(bcF1List.value(_)._1).mkString(" "), cnt) }
   }
 }
