@@ -1,4 +1,4 @@
-package main.scala.sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
 import org.apache.spark.Logging
 import scala.collection.mutable.ArrayBuffer

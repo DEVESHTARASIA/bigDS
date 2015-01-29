@@ -1,4 +1,4 @@
-package sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
 import org.apache.spark.rdd.RDD
 import org.jblas.DoubleMatrix
@@ -123,5 +123,5 @@ object TensorUtils {
     Math.sqrt(sum)
   }
 
-  //TODO RMSE of tensor
+  //TODO: RMSE of tensor
 }

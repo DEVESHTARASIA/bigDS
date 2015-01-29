@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
 import scala.reflect.runtime.universe._
 

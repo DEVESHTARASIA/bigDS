@@ -1,1 +1,7 @@
 .DS_Store
+target_bak/
+*.log
+target/
+data/
+.idea
+.idea_modules

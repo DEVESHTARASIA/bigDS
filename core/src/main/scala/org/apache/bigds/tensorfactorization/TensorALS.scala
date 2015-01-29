@@ -1,4 +1,4 @@
-package sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
 import scala.math.{abs, sqrt}
 import scala.util.Random
@@ -34,7 +34,7 @@ class TensorALS private (
    */
   def this() = this(10, 10, 0.01, false, 1.0, 4, Array(-1,-1,-1,-1), Array(10,12,11,8))
 
-  //========TODO block ALS==========
+  //TODO: block ALS================
 
   /** If true, do alternating nonnegative least squares. */
   private var nonnegative = false
@@ -165,7 +165,7 @@ class TensorALS private (
       U(i) = DoubleMatrix.rand(size(i), rank)
     }
 
-    //TODO calculate fit
+    //TODO: calculate fit to stop
 //    val fit = 0
 
     //calculate factors for each iteration
@@ -196,7 +196,8 @@ class TensorALS private (
         }
 
         //calculate pinv(Y)
-        //should be set a tmp val to store the value or else it will crush  TODO can still crush!
+        //should be set a tmp val to store the value or else it will crush
+        //TODO: can still crush!
         val pinvY = Solve.pinv(Y)
 //        val Unew = Solve.solvePositive(Y, Ugrouped)  //This way doesn't work!
 
@@ -225,7 +226,6 @@ class TensorALS private (
     U
   }
 
-  //TODO will be used in block ALS
   /**
    * Make a random factor vector with the given random.
    */

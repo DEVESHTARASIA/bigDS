@@ -1,4 +1,4 @@
-package sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
 import scopt.OptionParser
 import org.apache.log4j.{Level, Logger}
@@ -14,12 +14,12 @@ object testTensor {
   case class Params(
      input: String = null,
      kryo: Boolean = false,
-     numIterations: Int = 4,
+     numIterations: Int = 10,
      lambda: Double = 1.0,
      rank: Int = 10,
-     dim: Int = 4,
-     nsize: Array[Int] = Array(11,12,13,14),
-     numBlocks: Array[Int] = Array(-1,-1,-1,-1),
+     dim: Int = 2,
+     nsize: Seq[Int] = Seq(),
+     numBlocks: Seq[Int] = Seq(),
      implicitPrefs: Boolean = false) extends AbstractParams[Params]
 
   def main (args: Array[String]) {
@@ -31,17 +31,16 @@ object testTensor {
         .text(s"rank, default: ${defaultParams.rank}}")
         .action((x, c) => c.copy(rank = x))
       opt[Int]("dim")
-        .text(s"dim, default: ${defaultParams.dim}}")
+        .text(s"dim, required")
         .action((x, c) => c.copy(dim = x))
-
-      //TODO more than one parameter, need to update scopt
-//      opt[Seq[Int]]("size").valueName("<size1>,<size2>...")
-//        .text(s"size, default: ${defaultParams.nsize}}")
-//        .action{(x, c) => c.copy(jars = x)}
-
-//      opt[Int]("numBlocks")
-//        .text(s"number of blocks, default: ${defaultParams.numBlocks} (auto)")
-//        .action((x, c) => c.copy(numBlocks = x))
+        .required()
+      opt[Seq[Int]]("size").valueName("<size1>,<size2>...")
+        .text(s"size, required")
+        .action{(x, c) => c.copy(nsize = x)}
+        .required()
+      opt[Seq[Int]]("numBlocks").valueName("<block1>,<block2>...")
+        .text(s"number of blocks")
+        .action((x, c) => c.copy(numBlocks = x))
       opt[Int]("numIterations")
         .text(s"number of iterations, default: ${defaultParams.numIterations}")
         .action((x, c) => c.copy(numIterations = x))
@@ -56,7 +55,7 @@ object testTensor {
         .action((_, c) => c.copy(implicitPrefs = true))
       arg[String]("<input>")
         .required()
-        .text("input paths to a MovieLens dataset of ratings")
+        .text("input paths to a MovieLens dataset of ratings, required")
         .action((x, c) => c.copy(input = x))
       note(
         """
@@ -64,7 +63,7 @@ object testTensor {
           |
           | bin/spark-submit --class org.apache.spark.examples.mllib.MovieLensALS \
           |  examples/target/scala-*/spark-examples-*.jar \
-          |  --dim 2 --rank 5 --numIterations 20 --lambda 1.0 --kryo \
+          |  --dim 2 --rank 5 --size 30,100 --numBlocks 8,8 --numIterations 20 --lambda 1.0 --kryo \
           |  data/mllib/sample_movielens_data.txt
         """.stripMargin)
     }
@@ -89,7 +88,14 @@ object testTensor {
     val implicitPrefs = params.implicitPrefs
 
     val dim = params.dim
-    var nsize = params.nsize
+    val nsize = new Array[Int](dim)
+    params.nsize.copyToArray(nsize)
+    val numBlocks = new Array[Int](dim)
+    params.numBlocks.copyToArray(numBlocks)
+    for (i <- 0 until dim) {
+      if(numBlocks(i) == 0)
+        numBlocks(i) = -1
+    }
 
     val sparseTensor = sc.textFile(params.input).map { line =>
       val fields = line.split("::")
@@ -162,13 +168,13 @@ object testTensor {
       .setIterations(params.numIterations)
       .setLambda(params.lambda)
       .setImplicitPrefs(params.implicitPrefs)
-      .setBlocks(params.numBlocks)
-      .setSize(params.nsize)
+      .setBlocks(numBlocks)
+      .setSize(nsize)
       .run(training)
 
     //test for the matrix factorization
-//    val rmse = TensorUtils.computeMatrixRmse(factors, test, params.implicitPrefs)
-//    println(s"Test RMSE = $rmse.")
+    val rmse = TensorUtils.computeMatrixRmse(factors, test, params.implicitPrefs)
+    println(s"Test RMSE = $rmse.")
     sc.stop()
   }
 

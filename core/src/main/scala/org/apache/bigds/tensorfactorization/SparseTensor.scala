@@ -1,6 +1,6 @@
-package sjtu.spark.example
+package org.apache.bigds.tensorfactorization
 
-import main.scala.sjtu.spark.example.UnfoldTensor
+//import org.apache.bigds.tensorfactorization.UnfoldTensor
 import scala.collection.mutable.ArrayBuffer
 import org.apache.spark.Logging
 import org.jblas.{DoubleMatrix}
@@ -97,7 +97,7 @@ class SparseTensor(
       nvals *= w.get(idx)
     }
 
-    //TODO consider special case to ensure the function can be used commonly
+    //TODO: consider special case to ensure the function can be used commonly
 //    if (remdims.length == 0) {
 //      nvals
 //    }
