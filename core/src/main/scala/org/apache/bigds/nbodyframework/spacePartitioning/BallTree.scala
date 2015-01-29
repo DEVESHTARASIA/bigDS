@@ -1,8 +1,15 @@
-package org.apache.bigds.nbodyframework.spacePartitioning
+package org.apache.bigds.nbodyframework.spacepartitioning
+
+import org.apache.bigds.nbodyframework.model.{DistributedTreeNode, NBodyTreeNode}
 
 /**
- * Created by qhuang on 1/28/15.
+ * Ball Tree
+ *
+ *
  */
-class BallTree {
+class BallTree
+//extends NBodyTreeNode with DistributedTreeNode
+{
+
 
 }

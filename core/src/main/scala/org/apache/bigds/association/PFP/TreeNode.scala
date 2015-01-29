@@ -3,7 +3,7 @@ package org.apache.bigds.association.PFP
 import scala.collection.mutable.ArrayBuffer
 
 /**
- * TreeNode.scala
+ * NBodyTreeNode.scala
  * Description: This is the definition of TreeNode of FP-Tree
  * Author: Lin, Chen
  * E-mail: chlin.ecnu@gmail.com

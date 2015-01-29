@@ -13,7 +13,7 @@ class KNN(private val treeDeploy: TreeDeploy) extends Serializable with Logging 
 
   treeDeploy.assertValid()
 
-  def train(input: RDD[Body]): KNNModel = {
+  def train(input: RDD[Body]): Unit = {
 
   }
 
