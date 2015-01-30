@@ -1,5 +1,3 @@
-package org.apache.bigds.association.PFP
-
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.HashMap
 
