@@ -19,7 +19,9 @@ package org.apache.bigds.mining.association.SyncFPGrowth
 import org.apache.bigds.mining.association.FrequentItemsetMining
 import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
+import org.apache.spark.rdd.UnionRDD
 import org.apache.spark.storage.StorageLevel
+import org.apache.spark.broadcast.Broadcast
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, HashMap, HashSet}
@@ -139,16 +141,16 @@ class SyncFPGrowth (
   // get the potential frequent pattern ending with item i
   def getPotentialFPi(
        item: Int,
-       itemCnt: Int,
-       postfix: Array[Int],
-       f2set: Array[Array[Int]],
+       postfix: String,
+       f2Set: Array[Array[Int]],
        headTable: Array[ArrayBuffer[POCNode]],
-       hashCount: HashMap[POCNode, Int]): Array[(Array[Int], Int)] = {
+       hashCount: HashMap[POCNode, Int],
+       bcF1List: Broadcast[Array[(String, Int)]]): Array[(String, Int)] = {
 
     val nextHashCount = new HashMap[POCNode, Int]()
     val nextHeadTable = new Array[ArrayBuffer[POCNode]](item)
 
-    val f2 = f2set(item)
+    val f2 = f2Set(item)
     val countFreq = new Array[Int](f2.length)
 
     // reverse traverse all paths ending by item to build up
@@ -161,9 +163,9 @@ class SyncFPGrowth (
         val curItem = f2(i)
         if (curNode.item==curItem) {
           if(nextHeadTable(curItem)==null) nextHeadTable(curItem) = new ArrayBuffer[POCNode]()
-          nextHeadTable(curItem).prepend(curNode)
 
           val cnt = nextHashCount.getOrElse(curNode, 0)
+          if (cnt==0) nextHeadTable(curItem).prepend(curNode) // Yes it's a un-hashed node
           nextHashCount.update(curNode, cnt + nodeCnt)
 
           countFreq(i) += nodeCnt
@@ -177,77 +179,82 @@ class SyncFPGrowth (
       }
     }
 
-    val nextPotentialFPi = countFreq.zipWithIndex
+    countFreq.zipWithIndex
+      .filter { case (cnt, indx) => cnt > 0 }
       .flatMap { case (cnt, indx) =>
-        val nextItem = f2(indx)
-        getPotentialFPi(nextItem, cnt, postfix.+:(nextItem), f2set, nextHeadTable, nextHashCount)
+        val newPostfix = bcF1List.value(f2(indx))._1 + splitterPattern + postfix
+        val pFP = new Array[(String, Int)](1)
+        pFP(0) = (newPostfix, cnt)
+        if ((indx==0) || (f2Set(indx)==null) || (f2Set(indx).length==0)) pFP
+        else {
+          getPotentialFPi(f2(indx), newPostfix, f2Set, nextHeadTable, nextHashCount, bcF1List):+(newPostfix, cnt)
+        }
       }
-
-    if(postfix.length < 3) nextPotentialFPi
-    else nextPotentialFPi:+(postfix, itemCnt)
   }
 
   // calculate the frequent patterns ending with item i
   def calcFPi(
        item: Int,
-       forest: RDD[(POCNode, Array[ArrayBuffer[POCNode]], HashMap[POCNode, Int], Array[Array[Int]])]) : RDD[(Array[Int], Int)] = {
+       bcF1List: Broadcast[Array[(String, Int)]],
+       forest: RDD[(POCNode, Array[ArrayBuffer[POCNode]], HashMap[POCNode, Int], Array[Array[Int]])]) : RDD[(String, Int)] = {
 
-    val subForest = forest.map{ case(tree, headTable, hashCount, f2Set) =>
-      val nextHeadTable = new Array[ArrayBuffer[POCNode]](item)
-      val nextHashCount = new mutable.HashMap[POCNode, Int]()
-      val totalCount = new Array[Int](item)
-
-      headTable(item).foreach{ node =>
-        val nodeCnt = hashCount(node)
-        var curNode = node.parent
-
-        while (curNode!=null && curNode.item>=0) {
-          if(nextHeadTable(curNode.item)==null)
-            nextHeadTable(curNode.item) = new ArrayBuffer[POCNode]()
-          nextHeadTable(curNode.item).prepend(curNode)
-
-          val cnt = nextHashCount.getOrElse(curNode, 0)
-          nextHashCount.update(curNode, cnt + nodeCnt)
-
-          totalCount(curNode.item) += nodeCnt
-          curNode = curNode.parent
+      val subForest =
+        forest.filter{ case(tree, headTable, hashCount, f2Set) =>
+          headTable(item) != null
         }
-      }
-      (tree, nextHeadTable, nextHashCount, totalCount, f2Set)
-    }
+        .map{ case(tree, headTable, hashCount, f2Set) =>
+          val nextHeadTable = new Array[ArrayBuffer[POCNode]](item)
+          val nextHashCount = new mutable.HashMap[POCNode, Int]()
+          val totalCount = new Array[Int](item)
 
-    val f2i = subForest.flatMap{ case(tree, headTable, hashCount, totalCount, f2Set) =>
-      totalCount.zipWithIndex.map{ case(cnt, i) => (i, cnt) }
-    }
-    .reduceByKey(_ + _)
-    .filter(_._2 >= minSupport)
-/*
-    var ret = f2i.map{
-      case (i, cnt) => (item.toString + splitterPattern + i.toString, cnt)
-    }
-*/
+          headTable(item).foreach{ node =>
+            val nodeCnt = hashCount(node)
+            var curNode = node.parent
+
+            while (curNode!=null && curNode.item>=0) {
+              if(nextHeadTable(curNode.item)==null) nextHeadTable(curNode.item) = new ArrayBuffer[POCNode]()
+
+              val cnt = nextHashCount.getOrElse(curNode, 0)
+              if (cnt==0) nextHeadTable(curNode.item).prepend(curNode) // Yes it's a un-hashed node
+              nextHashCount.update(curNode, cnt + nodeCnt)
+
+              totalCount(curNode.item) += nodeCnt
+              curNode = curNode.parent
+            }
+          }
+        (tree, nextHeadTable, nextHashCount, totalCount, f2Set)
+      }
+
+    val f2i =
+      subForest.flatMap{ case(tree, nextHeadTable, nextHashCount, totalCount, f2Set) =>
+        totalCount.zipWithIndex.map{ case(cnt, i) => (i, cnt) }
+      }
+      .reduceByKey(_ + _)
+      .filter(_._2 >= minSupport)
+
     // broadcast all items f where (item, f) are frequent
-    val bcF2i = forest.context.broadcast(f2i.map{ case(i, cnt) => i }.collect.sortWith(_ < _))
+    val bcF2i = subForest.context.broadcast(f2i.map{ case(i, cnt) => i }.collect.sortWith(_ < _))
 
-    val fni = subForest.flatMap { case (tree, headTable, hashCount, totalCount, f2Set) =>
+    subForest.flatMap { case (tree, nextHeadTable, nextHashCount, totalCount, f2Set) =>
       f2Set(item) = bcF2i.value
-      bcF2i.value.flatMap { i =>
-        val postfix = new Array[Int](2)
-        postfix(0) = i
-        postfix(1) = item
-
-        getPotentialFPi(i, totalCount(i), postfix, f2Set, headTable, hashCount)
+/*      
+      var out = item + s"---\n"
+      for(i <- 0 until f2Set.length) {
+        out += i + s" -- " + (if(f2Set(i)==null) s"NULL" else f2Set(i).mkString(splitterPattern))
+        out += s"\n"
+      }
+      println(out)
+*/
+      f2Set(item).filter{ i => (i > 0) && (totalCount(i) > 0) && (f2Set(i)!=null) && (f2Set(i).length>0)}.flatMap { i =>
+        val postfix = bcF1List.value(i)._1 + splitterPattern + bcF1List.value(item)._1
+        getPotentialFPi(i, postfix, f2Set, nextHeadTable, nextHashCount, bcF1List)
       }
     }
     .reduceByKey(_ + _)
     .filter(_._2 >= minSupport)
-
-    fni.++(
+    .++(
       f2i.map{ case(i, cnt) =>
-        val pattern = new Array[Int](2)
-        pattern(0) = i
-        pattern(1) = item
-        (pattern, cnt)
+        (bcF1List.value(i)._1 + splitterPattern + bcF1List.value(item)._1, cnt)
       }
     )
   }
@@ -259,7 +266,7 @@ class SyncFPGrowth (
     val cdata = data.coalesce(SyncFPGrowth.DEFAULT_NUM_GROUPS).cache()
 
     // build f1list and f1map
-    val f1List = calcF1Items(cdata)
+    val f1List = calcF1Items(cdata).cache
     val bcF1List = sc.broadcast(f1List.collect().sortWith(_._2 > _._2))
     numF1Items = bcF1List.value.length
     println(s"f1List length = " + bcF1List.value.length + ", [" + bcF1List.value.mkString + "]")
@@ -275,22 +282,19 @@ class SyncFPGrowth (
         .map(bcF1Map.value(_))
         .sortWith(_ < _)
     }
-      .mapPartitions(genPrefixTree)
-      .persist(StorageLevel.MEMORY_AND_DISK)
+    .mapPartitions(genPrefixTree)
+    .persist(StorageLevel.MEMORY_AND_DISK)
 
     cdata.unpersist()
 
-    var result: RDD[(Array[Int], Int)] = null
-    for (i <- 0 until numF1Items) {
-      val fi = calcFPi(i, prefixForest)
-      result = result.++(fi)
-    }
+    val fiSeq =
+      for (i <- 1 until numF1Items) yield {
+        val fi = calcFPi(i, bcF1List, prefixForest)
+        fi.count
+        fi
+      }
 
-//    result = result.++(f1List)
-
-    result.map { case (set, cnt) =>
-      (set.map(bcF1List.value(_)._1).mkString(splitterPattern), cnt)
-    }
+    new UnionRDD(sc, fiSeq).++(f1List)
   }
 }
 

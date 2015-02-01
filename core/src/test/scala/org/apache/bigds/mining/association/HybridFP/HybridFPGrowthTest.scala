@@ -14,18 +14,18 @@ object HybridFPGrowthTest {
     val conf = new SparkConf()
     conf.setMaster("spark://sr471:7177")
       .setAppName("HybridFPGrowth")
-      .set("spark.cores.max", "192")
+      .set("spark.cores.max", "256")
       .set("spark.executor.memory", "160G")
 
     val sc = new SparkContext(conf)
 
     val supportThreshold = args(0).toDouble
     val fileName = args(1)
-    val splitterPattern = args(2)
+//    val splitterPattern = args(2)
 
     val startTime = currentTime
     val data = sc.textFile("hdfs://sr471:54311/user/clin/fpgrowth/input/" + fileName)
-    val frequentItemsets = HybridFPGrowth.run(data, supportThreshold, splitterPattern)
+    val frequentItemsets = HybridFPGrowth.run(data, supportThreshold)
     val count = frequentItemsets.count
     val endTime = currentTime
     val totalTime: Double = endTime - startTime

@@ -382,7 +382,7 @@ object DistFPGrowth {
   // Default values.
   val DEFAULT_SUPPORT_THRESHOLD = 0
   val DEFAULT_SPLITTER_PATTERN = " "
-  val DEFAULT_NUM_GROUPS = 192
+  val DEFAULT_NUM_GROUPS = 256
 
   /**
    * Run DistFPGrowth using the given set of parameters.

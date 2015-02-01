@@ -290,7 +290,7 @@ object HybridFPGrowth {
   // Default values.
   val DEFAULT_SUPPORT_THRESHOLD = 0
   val DEFAULT_SPLITTER_PATTERN = " "
-  val DEFAULT_NUM_GROUPS = 192
+  val DEFAULT_NUM_GROUPS = 256
 
   /**
    * Run HybridFPGrowth using the given set of parameters.

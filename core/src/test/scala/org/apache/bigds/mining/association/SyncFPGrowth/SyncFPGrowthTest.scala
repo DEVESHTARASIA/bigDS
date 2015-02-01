@@ -1,4 +1,4 @@
-package org.apache.bigds.mining.association.PFP
+package org.apache.bigds.mining.association.SyncFPGrowth
 
 import org.apache.spark.{SparkContext, SparkConf}
 
@@ -7,14 +7,14 @@ import scala.compat.Platform._
 /**
  * Created by clin3 on 2014/12/24.
  */
-object DistFPGrowthTest {
+object SyncFPGrowthTest {
   def main(args: Array[String]): Unit = {
     val supportThreshold = args(0).toDouble
     val fileName = args(1)
 
     //Initialize SparkConf.
     val conf = new SparkConf()
-    conf.setMaster("spark://sr471:7177").setAppName("FPGrowth").set("spark.cores.max", "256").set("spark.executor.memory", "160G")
+    conf.setMaster("spark://sr471:7177").setAppName("SyncFPGrowthTest").set("spark.cores.max", "192").set("spark.executor.memory", "160G")
 
     //Initialize SparkContext.
     val sc = new SparkContext(conf)
@@ -24,7 +24,7 @@ object DistFPGrowthTest {
     val input = sc.textFile("hdfs://sr471:54311/user/clin/fpgrowth/input/" + fileName)
 
     val startTime = currentTime
-    val rdd = DistFPGrowth.run(input, supportThreshold)
+    val rdd = SyncFPGrowth.run(input, supportThreshold)
     val count = rdd.count()
     
     val endTime = currentTime
