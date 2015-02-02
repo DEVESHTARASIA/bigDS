@@ -2,6 +2,7 @@
 target_bak/
 *.log
 target/
+core/target/
 data/
 .idea
 .idea_modules
