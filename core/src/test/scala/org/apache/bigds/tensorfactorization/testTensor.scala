@@ -9,18 +9,18 @@ import scala.collection.mutable
  * Created by Ou Huisi on 15/1/19.
  */
 
-object testTensor {
+object TestTensor {
 
   case class Params(
-     input: String = null,
-     kryo: Boolean = false,
-     numIterations: Int = 10,
-     lambda: Double = 1.0,
-     rank: Int = 10,
-     dim: Int = 2,
-     nsize: Seq[Int] = Seq(),
-     numBlocks: Seq[Int] = Seq(),
-     implicitPrefs: Boolean = false) extends AbstractParams[Params]
+                     input: String = null,
+                     kryo: Boolean = false,
+                     numIterations: Int = 1,
+                     lambda: Double = 1.0,
+                     rank: Int = 10,
+                     dim: Int = 2,
+                     nsize: Seq[Int] = Seq(),
+                     numBlocks: Seq[Int] = Seq(),
+                     implicitPrefs: Boolean = false) extends AbstractParams[Params]
 
   def main (args: Array[String]) {
     val defaultParams = Params()
@@ -133,8 +133,8 @@ object testTensor {
     }.cache()
 
     //RDD operation is lazy, count can cause it implement
-//    val numRatings = sparseTensor.count()
-//    println(s"Got $numRatings SparseTensor.")
+    //    val numRatings = sparseTensor.count()
+    //    println(s"Got $numRatings SparseTensor.")
 
     //split the sparsetensors into two parts: train and test
     val splits = sparseTensor.randomSplit(Array(0.8, 0.2))
@@ -156,9 +156,9 @@ object testTensor {
     }.cache()
 
     //if not necessary, don't do it
-//    val numTraining = training.count()
-//    val numTest = test.count()
-//    println(s"Training: $numTraining, test: $numTest.")
+    //    val numTraining = training.count()
+    //    val numTest = test.count()
+    //    println(s"Training: $numTraining, test: $numTest.")
 
     sparseTensor.unpersist(blocking = false)
 
@@ -173,7 +173,7 @@ object testTensor {
       .run(training)
 
     //test for the matrix factorization
-    val rmse = TensorUtils.computeMatrixRmse(factors, test, params.implicitPrefs)
+    val rmse = TensorUtils.computeRmse(factors, test, params.implicitPrefs)
     println(s"Test RMSE = $rmse.")
     sc.stop()
   }
