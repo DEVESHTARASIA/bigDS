@@ -108,20 +108,40 @@ object TensorUtils {
     a
   }
 
-  /** Compute RMSE of matrix (Root Mean Squared Error). */
-  def computeMatrixRmse (factors: Array[DoubleMatrix], data: RDD[SparseTensor], implicitPrefs: Boolean): Double = {
+//  /** Compute RMSE of matrix (Root Mean Squared Error). */
+//  def computeMatrixRmse (factors: Array[DoubleMatrix], data: RDD[SparseTensor], implicitPrefs: Boolean): Double = {
+//
+//    def mapPredictedRating(r: Double) = if (implicitPrefs) math.max(math.min(r, 1.0), 0.0) else r
+//
+//    val predict = factors(0).mmul(factors(1).transpose())
+//    val predictionsAndRatings = data.map(x => Math.pow((predict.get(x.sub(0), x.sub(1)) - x.v),2)).collect()
+//    var sum = 0.0
+//    for (i <- 0 until predictionsAndRatings.length) {
+//      sum += predictionsAndRatings(i)
+//    }
+//    sum /= predictionsAndRatings.length
+//    Math.sqrt(sum)
+//  }
+
+  /** Compute RMSE of tensor (Root Mean Squared Error). */
+  def computeRmse (factors: Array[DoubleMatrix], data: RDD[SparseTensor], implicitPrefs: Boolean): Double = {
 
     def mapPredictedRating(r: Double) = if (implicitPrefs) math.max(math.min(r, 1.0), 0.0) else r
 
-    val predict = factors(0).mmul(factors(1).transpose())
-    val predictionsAndRatings = data.map(x => Math.pow((predict.get(x.sub(0), x.sub(1)) - x.v),2)).collect()
+    val R = factors(0).getColumns
+    val loss = data.map { tmpTensor =>
+      var preVector = DoubleMatrix.ones(R)
+      for (n <- 0 until factors.length) {
+        preVector = preVector.mul(factors(n).getRow(tmpTensor.sub(n)))
+      }
+      Math.pow((preVector.sum() - tmpTensor.v), 2)
+    }.collect()
+
     var sum = 0.0
-    for (i <- 0 until predictionsAndRatings.length) {
-      sum += predictionsAndRatings(i)
+    for (i <- 0 until loss.length) {
+      sum += loss(i)
     }
-    sum /= predictionsAndRatings.length
+    sum /= loss.length
     Math.sqrt(sum)
   }
-
-  //TODO: RMSE of tensor
 }
