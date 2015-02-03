@@ -56,7 +56,8 @@ class SyncFPGrowth (
   )
 
   def getOrCalcMinSupport(data: RDD[String]): Int = {
-    if (minSupport < 0) minSupport = (data.count() * supportThreshold).toInt
+    if (minSupport < 0) minSupport = (supportThreshold * data.count()).ceil.toInt
+//    if (minSupport < 0) minSupport = (data.count() * supportThreshold).toInt
     minSupport
   }
 

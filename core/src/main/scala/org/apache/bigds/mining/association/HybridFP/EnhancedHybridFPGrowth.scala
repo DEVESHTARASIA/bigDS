@@ -17,15 +17,15 @@
 package org.apache.bigds.mining.association.HybridFP
 
 import org.apache.bigds.mining.association.FrequentItemsetMining
-import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
+import org.apache.spark.SparkContext._
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.broadcast.Broadcast
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, HashMap, HashSet}
 
-class HybridFPGrowth (
+class EnhancedHybridFPGrowth (
     private var supportThreshold: Double,
     private var splitterPattern: String,
     private var numGroups: Int) extends FrequentItemsetMining {
@@ -68,8 +68,12 @@ class HybridFPGrowth (
         .sortBy(_._2, false)
         .collect()
 */
+
     data.mapPartitions{ iter =>
       val hashItems = new HashMap[String, Int]()
+/*
+      iter.foreach(_.map{ s => hashItems.update(s, hashItems.getOrElse(s, 0) + 1) })
+*/
       while (iter.hasNext) {
         val record = iter.next()
         record.split(splitterPattern).map{ s => hashItems.update(s, hashItems.getOrElse(s, 0) + 1) }
@@ -89,20 +93,20 @@ class HybridFPGrowth (
     f1Map
   }
 
-  def getOrCreateChild(item: Int, parent: POCNode): POCNode = {
+  def getOrCreateChild(item: Int, parent: EnhancedPOCNode): EnhancedPOCNode = {
 
     // create children HashMap if it does not exist
-    if (parent.children == null) parent.children = new HashMap[Int, POCNode]()
+    if (parent.children == null) parent.children = new HashMap[Int, EnhancedPOCNode]()
 
     var child = parent.children.getOrElse(item, null)
     if (child==null) {
-      child = new POCNode(item, 0, parent)
+      child = new EnhancedPOCNode(item, 0)
       parent.children.update(item, child)
     }
 
     child
 /*
-    if (parent.child==null) { parent.child = new POCNode(item, 1, parent) }
+    if (parent.child==null) { parent.child = new EnhancedPOCNode(item, 1, parent) }
     else {
       var sibling = parent.child
       while (sibling.item < item) sibling = sibling.sibling
@@ -110,8 +114,8 @@ class HybridFPGrowth (
 */
   }
 
-  def genPrefixTree(iterator: Iterator[Array[Int]]) : Iterator[POCNode] = {
-    val tree = new POCNode()
+  def genPrefixTree(iterator: Iterator[Array[Int]]) : Iterator[EnhancedPOCNode] = {
+    val tree = new EnhancedPOCNode()
 
     while (iterator.hasNext) { // process the partition to build a prefix tree (with prefixTree as root)
       val arr = iterator.next()
@@ -126,7 +130,7 @@ class HybridFPGrowth (
     Iterator(tree)
   }
 
-  def scanF2(node : POCNode, prefix : Array[Int], depth : Int, hashCount : HashMap[(Int, Int), Int]) : Unit = {
+  def scanF2(node : EnhancedPOCNode, prefix : Array[Int], depth : Int, hashCount : HashMap[(Int, Int), Int]) : Unit = {
 
     if (node.children!=null) {
       node.children.foreach{ case(childItem, childNode) =>
@@ -144,69 +148,59 @@ class HybridFPGrowth (
     }
   }
 
-  def scanFi(node : POCNode, prefix : Array[Array[Array[Int]]], depth : Int, f2Set : HashSet[(Int, Int)], hashCount : HashMap[String, Int]) : Unit = {
+  def scanFi(node : EnhancedPOCNode, prefix : Array[Array[Array[Int]]], f2Set : Array[Array[Int]], hashCount : HashMap[String, Int]) : Unit = {
 //    println(s"Current in depth = " + depth)
     if (node.children!=null) {
       node.children.foreach{ case(childItem, childNode) =>
         val selfCand = new Array[Int](1)
         selfCand(0) = childItem
-        val curFi = 
-          prefix.take(depth).flatMap{ pi =>
-            pi.filter{ arrOfFi =>
-              var i = 0
-              while((i < arrOfFi.length) && (f2Set.contains((arrOfFi(i), childItem)))) i += 1
-              i==arrOfFi.length
-            }
-          }
-          .map{ arrOfFi =>
-            val arrOfCurFi = arrOfFi:+(childItem)
-            if (arrOfCurFi.length>2) {
-              val strOfCurFi = arrOfCurFi.mkString(splitterPattern)
-              hashCount.update(strOfCurFi, hashCount.getOrElse(strOfCurFi, 0) + childNode.count)
-            }
-            arrOfCurFi
-          }:+(selfCand)
-        prefix(depth) = curFi
-        scanFi(childNode, prefix, depth + 1, f2Set, hashCount)
+        val topCand = new Array[Array[Int]](1)
+
+        if (f2Set(childNode.item)==null) {
+          prefix(childItem) = new Array[Array[Int]](1)
+          prefix(childItem)(0) = selfCand
+        } else {
+          prefix(childItem)
+            = f2Set(childNode.item).filter{ fup => prefix(fup)!=null }
+                              .flatMap{ fup =>
+                                prefix(fup).map{ pattern =>
+                                  val fcur = pattern:+(childNode.item)
+                                  if (fcur.length>2) {
+                                    val strOfCurFi = fcur.mkString(splitterPattern)
+                                    hashCount.update(strOfCurFi, hashCount.getOrElse(strOfCurFi, 0) + childNode.count)
+                                  }
+
+                                  fcur
+                                }
+                              }:+(selfCand)
+        }
+
+        scanFi(childNode, prefix, f2Set, hashCount)
+        prefix(childItem) = null
       }
     }
   }
 
-  def calcFiItemsets(forest : RDD[POCNode], bcF2Set : Broadcast[HashSet[(Int, Int)]]) : RDD[(String, Int)] = {
+  def calcFiItemsets(forest : RDD[EnhancedPOCNode], bcF2Set : Broadcast[Array[Array[Int]]]) : RDD[(String, Int)] = {
+    
     forest.flatMap{ case(root) =>
       val f2Set = bcF2Set.value
       val prefix = new Array[Array[Array[Int]]](numF1Items)
       val hashCount = new HashMap[String, Int]()
 
-      val topPrefix = new Array[Array[Int]](1)
-      topPrefix(0) = new Array[Int](1)
-      prefix(0) = topPrefix
+      scanFi(root, prefix, f2Set, hashCount)
+/*
       root.children.foreach{ case(item, child) =>
-        topPrefix(0)(0) = item
-        scanFi(child, prefix, 1, f2Set, hashCount)
+        scanFi(child, prefix, f2Set, hashCount)
       }
+*/
       hashCount.iterator
     }
     .reduceByKey(_ + _)
     .filter(_._2 >= minSupport)
   }
 
-  def calcF2Itemsets(forest : RDD[POCNode]) : RDD[((Int, Int), Int)] = {
-/*  
-    forest.flatMap{ case(root, hashCount) =>
-      val trie = new HashMap[Int, Int]()
-      hashCount.filter{ case(node, cnt) =>
-        node.parent.item >= 0
-      }.foreach{ case(node, cnt) =>
-        val key = (node.parent.item << 16) & node.item
-        trie.update(key, trie.getOrElse(key, 0) + cnt)
-      }
-
-      trie.toSeq
-    }
-    .reduceByKey(_ + _, HybridFPGrowth.DEFAULT_NUM_GROUPS)
-//
-*/
+  def calcF2Itemsets(forest : RDD[EnhancedPOCNode]) : RDD[((Int, Int), Int)] = {
     forest.flatMap{ case(root) =>
       val prefix = new Array[Int](numF1Items)
       val hashCount = new HashMap[(Int, Int), Int]()
@@ -219,16 +213,23 @@ class HybridFPGrowth (
     .reduceByKey(_ + _)
     .filter(_._2 >= minSupport)
   }
-
+/*
   def buildF2Map(f2Itemsets : RDD[((Int, Int), Int)]) : HashMap[(Int, Int), Int] = {
     val f2Map = new HashMap[(Int, Int), Int]()
     f2Itemsets.collect.foreach { case(l, cnt) => f2Map(l) = cnt }
     f2Map
   }
+*/
 
-  def buildF2Set(f2Itemsets : RDD[((Int, Int), Int)]) : HashSet[(Int, Int)] = {
-    var f2Set = new HashSet[(Int, Int)]()
-    f2Set++(f2Itemsets.map(_._1).collect)
+  def buildF2Set(f2Itemsets : RDD[((Int, Int), Int)]) : Array[Array[Int]] = {
+    val f2Set = new Array[Array[Int]](numF1Items)
+    f2Itemsets.map{ case(f2i, cnt) => (f2i._2, f2i._1) }
+              .groupByKey()
+              .map{ case (item, parents) => (item, parents.toArray) }
+              .collect
+              .map{ case(item, parents) => f2Set(item) = parents }
+
+    f2Set
   }
 
   /** Implementation of HybridFPGrowth. */
@@ -287,7 +288,7 @@ class HybridFPGrowth (
 /**
  * Top-level methods for calling HybridFPGrowth.
  */
-object HybridFPGrowth {
+object EnhancedHybridFPGrowth {
 
   // Default values.
   val DEFAULT_SUPPORT_THRESHOLD = 0
@@ -305,20 +306,20 @@ object HybridFPGrowth {
       data: RDD[String],
       supportThreshold: Double,
       splitterPattern: String): RDD[(String, Int)] = {
-    new HybridFPGrowth()
+    new EnhancedHybridFPGrowth()
       .setSupportThreshold(supportThreshold)
       .setSplitterPattern(splitterPattern)
       .run(data)
   }
 
   def run(data: RDD[String], supportThreshold: Double): RDD[(String, Int)] = {
-    new HybridFPGrowth()
+    new EnhancedHybridFPGrowth()
       .setSupportThreshold(supportThreshold)
       .run(data)
   }
 
   def run(data: RDD[String]): RDD[(String, Int)] = {
-    new HybridFPGrowth()
+    new EnhancedHybridFPGrowth()
       .run(data)
   }
 }

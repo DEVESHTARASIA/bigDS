@@ -27,7 +27,7 @@ class DistFPGrowth (
     private var numGroups: Int) extends FrequentItemsetMining {
 
   private var numF1Items = -1
-  private var minSupport = -1.0
+  private var minSupport = -1
 
   /** Set the support threshold. Support threshold must be defined on interval [0, 1]. Default: 0. */
   def setSupportThreshold(supportThreshold: Double): this.type = {
@@ -56,7 +56,8 @@ class DistFPGrowth (
   }
 */
   def getOrCalcMinSupport(data: RDD[String]): Double = {
-    if (minSupport < 0) minSupport = supportThreshold * data.count()
+//    if (minSupport < 0) minSupport = supportThreshold * data.count()
+    if (minSupport < 0) minSupport = (supportThreshold * data.count()).ceil.toInt
     minSupport
   }
 
