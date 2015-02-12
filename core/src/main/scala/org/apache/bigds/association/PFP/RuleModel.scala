@@ -1,3 +1,5 @@
+package org.apache.bigds.association.PFP
+
 /**
  * Created by clin3 on 2015/1/26.
  */
