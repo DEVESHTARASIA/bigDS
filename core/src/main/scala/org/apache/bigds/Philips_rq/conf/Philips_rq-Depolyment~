@@ -1,0 +1,7 @@
+#set user parameters
+
+#SERVER
+SPARK_MASTER=spark://127.0.0.1:7077
+TEST_DATA=/home/yaochunnan/Documents/Philips_rq/ref/sample_data.csv
+
+
