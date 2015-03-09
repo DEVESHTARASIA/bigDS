@@ -2,18 +2,19 @@ Health Care Support For BigDS
 =======
 
 According to Philips requirements, we have implemented:
-1. Chi-Square Two-sample Test, including calculation fo Cramer's V
-2. Wilcox Rank-Sum Test
-3. Association Rule Mining (FP-Growth)
-4. Fisher's exact test
-5. Missing value handling (fill with mean\median\proportional random)
+
+	1. Chi-Square Two-sample Test, including calculation fo Cramer's V
+	2. Wilcox Rank-Sum Test
+	3. Association Rule Mining (FP-Growth)
+	4. Fisher's exact test
+	5. Missing value handling (fill with mean\median\proportional random)
 
 Install
 =======
 
 You need to install Spark 1.2.0 or higher versions together with hadoop 1.0.4 as storage support.
 
-Please set Spark's root dictionary as the environment variable on your computer, named SPARK_HOME
+Please set Spark's root as the environment variable on your computer, named SPARK_HOME
 
 Building BigDS Healthcare support
 ----------------
