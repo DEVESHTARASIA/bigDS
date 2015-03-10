@@ -2,439 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a51922d-3a23-4e33-96d1-940b2e32df59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SBT__org_apache_hadoop_hadoop_yarn_server_nodemanager_2_2_0_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/healthcare-build.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/healthcare.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__aopalliance_aopalliance_1_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__asm_asm_3_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_clearspring_analytics_stream_2_7_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_codahale_metrics_metrics_core_3_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_codahale_metrics_metrics_graphite_3_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_codahale_metrics_metrics_json_3_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_codahale_metrics_metrics_jvm_3_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_esotericsoftware_kryo_kryo_2_21_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_esotericsoftware_minlog_minlog_1_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_esotericsoftware_reflectasm_reflectasm_1_07_shaded_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_annotations_2_3_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_core_2_3_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_databind_2_3_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_github_fommil_netlib_core_1_1_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_github_rwl_jtransforms_2_4_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_google_code_findbugs_jsr305_1_3_9_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_google_guava_guava_14_0_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_google_inject_guice_3_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_google_protobuf_protobuf_java_2_5_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_ning_compress_lzf_1_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_sun_jersey_contribs_jersey_guice_1_9_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_sun_jersey_jersey_json_1_9_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_sun_jersey_jersey_server_1_9_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_sun_jersey_jersey_test_framework_jersey_test_framework_grizzly2_1_9_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_sun_xml_bind_jaxb_impl_2_2_3_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_thoughtworks_paranamer_paranamer_2_6_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_chill_2_10_0_5_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_chill_java_0_5_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_column_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_common_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_encoding_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_format_2_2_0_rc1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_generator_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_hadoop_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_twitter_parquet_jackson_1_6_0rc3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__com_typesafe_config_1_2_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_beanutils_commons_beanutils_1_7_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_beanutils_commons_beanutils_core_1_8_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_cli_commons_cli_1_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_codec_commons_codec_1_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_collections_commons_collections_3_2_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_configuration_commons_configuration_1_6_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_digester_commons_digester_1_8_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_httpclient_commons_httpclient_3_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_io_commons_io_2_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_lang_commons_lang_2_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_logging_commons_logging_1_1_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__commons_net_commons_net_2_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__io_netty_netty_3_8_0_Final_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__io_netty_netty_all_4_0_23_Final_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__javax_activation_activation_1_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__javax_inject_javax_inject_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__javax_xml_bind_jaxb_api_2_2_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__jline_jline_0_9_94_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__log4j_log4j_1_2_17_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__net_java_dev_jets3t_jets3t_0_7_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__net_jpountz_lz4_lz4_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__net_sf_opencsv_opencsv_2_3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__net_sf_py4j_py4j_0_8_2_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__net_sourceforge_f2j_arpack_combined_all_0_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_avro_avro_1_7_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_commons_commons_compress_1_4_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_3_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_commons_commons_math3_3_1_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_commons_commons_math_2_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_curator_curator_client_2_4_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_curator_curator_framework_2_4_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_curator_curator_recipes_2_4_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_annotations_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_auth_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_client_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_common_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_hdfs_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_mapreduce_client_app_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_mapreduce_client_common_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_mapreduce_client_core_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_mapreduce_client_jobclient_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_mapreduce_client_shuffle_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_yarn_api_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_yarn_client_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_yarn_common_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_hadoop_hadoop_yarn_server_common_2_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_mesos_mesos_0_18_1_shaded_protobuf_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_catalyst_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_core_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_mllib_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_network_common_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_network_shuffle_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_sql_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_spark_spark_streaming_2_10_1_2_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_apache_zookeeper_zookeeper_3_4_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_codehaus_jackson_jackson_core_asl_1_9_11_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_codehaus_jackson_jackson_jaxrs_1_8_8_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_codehaus_jackson_jackson_mapper_asl_1_9_11_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_codehaus_jackson_jackson_xc_1_8_8_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_codehaus_jettison_jettison_1_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_continuation_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_http_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_io_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_jndi_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_plus_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_security_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_server_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_servlet_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_util_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_webapp_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_jetty_xml_8_1_14_v20131031_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_orbit_javax_activation_1_1_0_v201105071233_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_orbit_javax_mail_glassfish_1_4_1_v201005082020_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_orbit_javax_servlet_3_0_0_v201112011016_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_eclipse_jetty_orbit_javax_transaction_1_1_1_v201105210645_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_jblas_jblas_1_2_3_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_json4s_json4s_ast_2_10_3_2_10_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_json4s_json4s_core_2_10_3_2_10_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_json4s_json4s_jackson_2_10_3_2_10_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_mortbay_jetty_jetty_util_6_1_26_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_objenesis_objenesis_1_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_roaringbitmap_RoaringBitmap_0_4_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scala_lang_scala_actors_2_10_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scala_lang_scala_compiler_2_10_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scala_lang_scala_library_2_10_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scala_lang_scala_reflect_2_10_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scala_lang_scalap_2_10_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scalamacros_quasiquotes_2_10_2_0_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scalanlp_breeze_2_10_0_10_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scalanlp_breeze_macros_2_10_0_3_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_scalatest_scalatest_2_10_1_9_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_slf4j_jcl_over_slf4j_1_7_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_slf4j_jul_to_slf4j_1_7_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_slf4j_slf4j_api_1_7_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_slf4j_slf4j_log4j12_1_7_5_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_sonatype_sisu_inject_cglib_2_2_1_v20090111_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_akka_akka_actor_2_10_2_3_4_spark_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_akka_akka_remote_2_10_2_3_4_spark_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_akka_akka_slf4j_2_10_2_3_4_spark_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_protobuf_protobuf_java_2_5_0_spark_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_pyrolite_2_0_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spark_project_spark_unused_1_0_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spire_math_spire_2_10_0_7_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_spire_math_spire_macros_2_10_0_7_4_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_tachyonproject_tachyon_0_5_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_tachyonproject_tachyon_client_0_5_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_tukaani_xz_1_0_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_uncommons_maths_uncommons_maths_1_2_2a_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__org_xerial_snappy_snappy_java_1_1_1_6_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__stax_stax_api_1_0_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/libraries/SBT__xmlenc_xmlenc_0_52_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/modules/philips_rq-build.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/modules/philips_rq.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/sbt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/scala_compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/build.sbt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/conf/Philips_rq-Depolyment" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$11d5bc2e45e4eef8f681$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$11d5bc2e45e4eef8f681$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$11d5bc2e45e4eef8f681.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$11d5bc2e45e4eef8f681.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$1a689d4f7e8848eb9a72$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$1a689d4f7e8848eb9a72$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$1a689d4f7e8848eb9a72.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$1a689d4f7e8848eb9a72.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$775713faac52a004796c$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$775713faac52a004796c$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$775713faac52a004796c.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$775713faac52a004796c.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$82d524b59e056aa57d0d$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$82d524b59e056aa57d0d$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$82d524b59e056aa57d0d.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$82d524b59e056aa57d0d.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$c822004fe23dcc3ce280$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$c822004fe23dcc3ce280$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$c822004fe23dcc3ce280.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/project/target/config-classes/$c822004fe23dcc3ce280.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/ref/.~lock.sample_data.csv#" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/ref/643" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/ref/sample_data.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/ref/stats.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/run_Chisq_test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/run_FP_Growth_test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/run_Missing_data_test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/run_Wilcox_test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/run_fisher_exact_test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/AssociationAnalysis.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/FiExactTest.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/wilcox/Alternative.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/com/intel/Philips/stat/wilcox/WilcoxRankSumTest.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/org/apache/spark/mllib/fpm/FPGrowth.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/main/scala/org/apache/spark/mllib/fpm/FPTree.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/test/scala/WilcoxTestSuite.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/src/test/scala/fisher_exact_test.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/.history" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/philips-requirements/philips-requirements_2.10/0.0.1/resolved.xml.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/philips-requirements/philips-requirements_2.10/0.0.1/resolved.xml.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/ivy-report.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/ivy-report.xsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-compile-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-compile.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-docs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-optional.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-provided.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-runtime-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-runtime.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-scala-tool.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-test-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/resolution-cache/reports/philips-requirements-philips-requirements_2.10-test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/Alternative$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/Alternative.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$6$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$FpmParse$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$FpmParse$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$8$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$9$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$15.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$16.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$18.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$19.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$20.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$21.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExTestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$NullHypothesis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExact.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$3$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/TestResult$class.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/TestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$11$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$choose$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$4$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$run$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowthModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$default$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$merge$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$project$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Summary.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/philips-requirements_2.10-0.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$3$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/$global/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/input_dsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/ivySbt/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/projectDescriptors/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/update/$global/streams/inputs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/update/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/update/$global/streams/output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/update/$global/streams/update_cache_2.10/inputs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/$global/$global/discoveredMainClasses/data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/compile/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/compile/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/copyResources/$global/streams/copy-resources" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/copyResources/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/dependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/exportedProducts/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.10" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/internalDependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/mainClass/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/managedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/packageBin/$global/streams/inputs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/packageBin/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/packageBin/$global/streams/output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/unmanagedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/compile/unmanagedJars/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/dependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/exportedProducts/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/fullClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/internalDependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/unmanagedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/runtime/unmanagedJars/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/test/externalDependencyClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/test/managedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/test/unmanagedClasspath/$global/streams/export" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Philips_rq/target/streams/test/unmanagedJars/$global/streams/export" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Philips requirements.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -476,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WilcoxonRankSum.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WilcoxonRankSum.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45801526" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+              <caret line="0" column="28" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -520,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -530,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -539,18 +108,18 @@
       <file leaf-file-name="FiExact.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3885">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="3885">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestResult.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestResult.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="945">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.22413793" vertical-offset="539" max-vertical-offset="945">
+              <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -599,6 +168,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" />
       </list>
     </option>
   </component>
@@ -802,6 +372,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Alternative.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Philips requirements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HealthCare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FiExact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestResult.scala" />
               <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1295,7 +899,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1533,26 +1137,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
           <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3885">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1581,22 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
@@ -1607,8 +1179,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45801526" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="0" column="28" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+          <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="3885">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22413793" vertical-offset="539" max-vertical-offset="945">
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
           <folding />
         </state>
       </provider>

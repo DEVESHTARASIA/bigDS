@@ -1,4 +1,4 @@
-package com.intel.Philips.stat
+package com.intel.bigds.stat
 
 import org.apache.spark.annotation.Experimental
 
