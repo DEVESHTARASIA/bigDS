@@ -6,3 +6,7 @@ compile
 run
 package
 exit
+package
+show discoverMainClasses
+show discoveredMainClasses
+package

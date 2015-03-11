@@ -24,7 +24,7 @@ object AssociationAnalysis {
     })
   }
 
-  //do the test on Philips' synthesized data, choose item genre (1,2,3,4,5,6,7,8,9,10) in the data
+  //do the test on synthesized data, choose item genre (1,2,3,4,5,6,7,8,9,10) in the data
   def main(args: Array[String]): Unit = {
     println("Association rule analysis")
     if (args.length != 2){

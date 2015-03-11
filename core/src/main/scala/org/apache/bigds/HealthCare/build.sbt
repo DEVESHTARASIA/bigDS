@@ -1,4 +1,4 @@
-name := "Philips requirements"
+name := "Health Care BigDS support"
 
 version := "0.0.1"
 

@@ -2,7 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a51922d-3a23-4e33-96d1-940b2e32df59" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$41eccbe5bb896f16316c$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$41eccbe5bb896f16316c$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$41eccbe5bb896f16316c.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$41eccbe5bb896f16316c.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/AssociationAnalysis.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/Alternative.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/WilcoxRankSumTest.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/philips-requirements_2.10-0.0.1.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$3.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$4.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$5.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$6.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$3.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4$$anonfun$apply$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4$$anonfun$apply$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5$$anonfun$apply$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5$$anonfun$apply$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItemsets$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$run$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$run$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowthModel.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowthModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1$$anonfun$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$add$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2$$anonfun$apply$3.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2$$anonfun$apply$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1$$anonfun$apply$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$default$2$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$extract$default$2$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$merge$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$merge$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1$$anonfun$apply$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1$$anonfun$apply$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$2.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$getTransactions$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$project$1.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$$anonfun$org$apache$spark$mllib$fpm$FPTree$$project$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Node.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Node.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Summary.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree$Summary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPTree.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/$global/$global/discoveredMainClasses/data" afterPath="$PROJECT_DIR$/target/streams/compile/$global/$global/discoveredMainClasses/data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/inputs" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/inputs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/inputs" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/inputs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/output" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/output" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/output" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.10" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.10" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_Chisq_test.sh" afterPath="$PROJECT_DIR$/run_Chisq_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_FP_Growth_test.sh" afterPath="$PROJECT_DIR$/run_FP_Growth_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_Missing_data_test.sh" afterPath="$PROJECT_DIR$/run_Missing_data_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_Wilcox_test.sh" afterPath="$PROJECT_DIR$/run_Wilcox_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_fisher_exact_test.sh" afterPath="$PROJECT_DIR$/run_fisher_exact_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Philips requirements.iws" />
@@ -35,101 +107,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MissValueHandling.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala">
+      <file leaf-file-name="DataContainer.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/DataContainer/DataContainer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WilcoxonRankSum.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="0" column="28" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WilcoxRankSumTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/WilcoxRankSumTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4065">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Alternative.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/Alternative.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AssociationAnalysis.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/AssociationAnalysis.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChiSquareTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FiExactTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-              <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
+            <state vertical-scroll-proportion="-4.321429" vertical-offset="29" max-vertical-offset="1950">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FiExact.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/FiExact/FiExact.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="3885">
-              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state vertical-scroll-proportion="-6.428571" vertical-offset="180" max-vertical-offset="4050">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#31#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssociationAnalysis.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/AssociationAnalysis.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.321429" vertical-offset="224" max-vertical-offset="1230">
+              <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestResult.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
+      <file leaf-file-name="ChiSquareTest.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/ChiSquareTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22413793" vertical-offset="539" max-vertical-offset="945">
-              <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+            <state vertical-scroll-proportion="-6.107143" vertical-offset="69" max-vertical-offset="585">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataContainer.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala">
+      <file leaf-file-name="MissValueHandling.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/MissValueHandling.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
-              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+            <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="1035">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WilcoxonRankSum.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/WilcoxonRankSum.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45753425" vertical-offset="28" max-vertical-offset="1020">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -169,6 +203,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/FiExact/FiExact.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/AssociationAnalysis.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/ChiSquareTest.scala" />
       </list>
     </option>
   </component>
@@ -337,76 +374,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wilcox" />
+              <option name="myItemId" value="Wilcox" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Philips requirements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HealthCare" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wilcox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Alternative.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Philips requirements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HealthCare" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FiExact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestResult.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -845,7 +814,7 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="Philips requirements" />
+              <option name="name" value="Health Care BigDS support" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
@@ -980,78 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1050">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/WilcoxRankSumTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="4170">
-          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/AssociationAnalysis.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1275">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="615">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1005">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="4050">
-          <caret line="81" column="23" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="945">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2040">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/fisher_exact_test.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="690">
@@ -1137,82 +1034,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/DataContainer/DataContainer.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/DataContainer/DataContainer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+        <state vertical-scroll-proportion="-4.321429" vertical-offset="29" max-vertical-offset="1950">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/WilcoxRankSumTest.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/FiExact/FiExact.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4065">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        <state vertical-scroll-proportion="-6.428571" vertical-offset="180" max-vertical-offset="4050">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/AssociationAnalysis.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.321429" vertical-offset="224" max-vertical-offset="1230">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/wilcox/Alternative.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/ChiSquareTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        <state vertical-scroll-proportion="-6.107143" vertical-offset="69" max-vertical-offset="585">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/AssociationAnalysis.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/MissValueHandling.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="1035">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/MissValueHandling.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/WilcoxonRankSum.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/WilcoxonRankSum.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="0" column="28" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/ChiSquareTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExactTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-          <caret line="14" column="117" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/FiExact.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="3885">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/Philips/stat/FiExact/TestResult.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22413793" vertical-offset="539" max-vertical-offset="945">
-          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.45753425" vertical-offset="28" max-vertical-offset="1020">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding />
         </state>
       </provider>

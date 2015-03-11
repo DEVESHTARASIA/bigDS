@@ -13,7 +13,7 @@ object ChisqwithData {
 
     val conf = new SparkConf()
       .setMaster(args(0))
-      .setAppName("Chisquare test with Philips Data")
+      .setAppName("Chisquare test with Synthesized Data")
 
     val sc = new SparkContext(conf)
 
