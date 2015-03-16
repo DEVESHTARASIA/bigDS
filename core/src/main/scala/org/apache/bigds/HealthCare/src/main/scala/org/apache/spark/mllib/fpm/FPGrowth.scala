@@ -108,7 +108,7 @@ class FPGrowth private (
       .reduceByKey(partitioner, _ + _)
       .filter(_._2 >= minCount)
       .collect()
-      .sortBy(-_._2)
+      .sortBy(_._2)
       .map(_._1)
   }
 

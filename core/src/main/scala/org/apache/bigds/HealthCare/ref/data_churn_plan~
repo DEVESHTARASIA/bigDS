@@ -1,0 +1,16 @@
+chisquare:1. independence test; two sample test
+wilcox: two sample test
+Fisher's exact: two sample test, independence test
+KS test: two sample test
+F test: two sample test
+
+
+pair generation: 
+for two sample test chisquare:
+
+for independece chisquare:
+feature_col, feature, (label_col_1, label_1, label_col_2, label_2, label_col_3, label_3, .....)  [feature number-1]
+.
+.
+.
+.[sample number]

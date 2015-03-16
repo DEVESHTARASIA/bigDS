@@ -10,3 +10,4 @@ package
 show discoverMainClasses
 show discoveredMainClasses
 package
+exit

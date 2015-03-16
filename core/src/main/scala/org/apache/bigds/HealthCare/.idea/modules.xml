@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/healthcare.iml" filepath="$PROJECT_DIR$/.idea/modules/healthcare.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/healthcare-build.iml" filepath="$PROJECT_DIR$/.idea/modules/healthcare-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/philips_rq.iml" filepath="$PROJECT_DIR$/.idea/modules/philips_rq.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/philips_rq-build.iml" filepath="$PROJECT_DIR$/.idea/modules/philips_rq-build.iml" />
     </modules>
   </component>
 </project>
