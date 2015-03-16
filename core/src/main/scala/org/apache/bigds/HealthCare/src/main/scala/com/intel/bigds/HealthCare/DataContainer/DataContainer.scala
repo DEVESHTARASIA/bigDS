@@ -1,16 +1,17 @@
 package com.intel.bigds.HealthCare.preprocessing
 
 import breeze.linalg.min
+import breeze.numerics.sqrt
 import org.apache.spark.rdd.RDD
 import scala.collection.immutable.Set
 import org.apache.spark.SparkContext._
 import scala.collection.mutable
 import scala.util.Random
-import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.rdd.RDDFunctions._
 import scala.collection.mutable.{Map, HashMap}
-
+import org.apache.spark.mllib.stat.{MultivariateStatisticalSummary, Statistics}
 
 
 
@@ -90,7 +91,7 @@ object DataContainer {
  // }
 }
 
-class DataContainer(val data: RDD[Array[String]]) extends Serializable {
+class DataContainer(var data: RDD[Array[String]]) extends Serializable {
   val FeatureNum = data.first.length
   val ColFullLength = data.count
   val ColLength = new Array[Int](FeatureNum).map(i => ColFullLength)
@@ -100,14 +101,14 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
   }
   //CleanMethod: (replace by) mean, median, mode, zero ; abandon
   def Cleaning(na: Set[String], CleaningMethod: String, Feature_num_Array: Array[Int]): RDD[Array[String]] = {
-    var after_data:RDD[Array[String]] = data
+    //var after_data:RDD[Array[String]] = data
     for (m <- Feature_num_Array) {
       if (CleaningMethod == "mean") {
-        val data_filter = after_data.filter(i => !na.contains(i(m)))
+        val data_filter = data.filter(i => !na.contains(i(m)))
         val pre_data = data_filter.map(i => (i(m).toDouble,1)).reduce((a,b) => ((a._1 + b._1), (a._2 + b._2)))
         val avg = pre_data._1 / pre_data._2
         val br_avg = data.sparkContext.broadcast(avg)
-        after_data = after_data.map(i => {
+        data = data.map(i => {
           if (na.contains(i(m))){
             i(m) = br_avg.value.toString
             ColLength(m) -= 1
@@ -117,7 +118,7 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
         )
       }
       else if (CleaningMethod == "median") {
-        val data_filter = after_data.filter(i => !na.contains(i(m)))
+        val data_filter = data.filter(i => !na.contains(i(m)))
         val sorted_data = data_filter.map(i => i(m).toDouble).sortBy(a => a).zipWithIndex().map {
           case (v, idx) => (idx, v)
         }
@@ -130,7 +131,7 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
         } else sorted_data.lookup(count / 2).head
 
         val br_median = data.sparkContext.broadcast(median)
-        after_data = after_data.map(i => {
+        data = data.map(i => {
           if (na.contains(i(m))) {
             i(m) = br_median.value.toString
             ColLength(m) -= 1
@@ -140,7 +141,7 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
       }
       //fill missing values according to the probability of known entries of the existing data
       else if (CleaningMethod == "proportional") {
-        val data_filter = after_data.filter(i => !na.contains(i(m))).cache()
+        val data_filter = data.filter(i => !na.contains(i(m))).cache()
         val data_size = data_filter.count()
         val br_size = data.sparkContext.broadcast(data_size)
         var j = 0
@@ -156,8 +157,8 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
         val npart = data.partitions.length // Are there better ways to get the number of parititions of an RDD ?
         val rnd = new Random(23)
         val seed = data.sparkContext.parallelize(Range(0, npart).map(i => rnd.nextInt), npart)
-        val data_seed = after_data.zipPartitions(seed)(func)
-        after_data = data_seed.mapPartitions(iter => {
+        val data_seed = data.zipPartitions(seed)(func)
+        data = data_seed.mapPartitions(iter => {
           iter.map(i => {
             val rnd_sub = new Random(i._2)
             val j = i._1
@@ -174,7 +175,7 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
       }
 
       else { //abandon corresponding row
-        after_data = after_data.flatMap(i => {
+        data = data.flatMap(i => {
           if (na.contains(i(m))) {
             ColLength.map(i => i - 1)
             Nil
@@ -185,13 +186,45 @@ class DataContainer(val data: RDD[Array[String]]) extends Serializable {
         })
       }
     }
-  after_data
+  data
   }
 
-  //def DataBinning(val data:RDD[Array[String]):RDD[Array[String]] = {
+/*
+For unbinned data, Dataplot automatically generates binned data using the same rule as for histograms.
+That is, the class width is 0.3*s where s is the sample standard deviation. The upper and lower limits
+are the mean plus or minus 6 times the sample standard deviation (any zero frequency bins in the tails
+are omitted).
+Imitating description at http://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/chi2samp.htm
 
- // }
-
+So to my understanding, there will be (6+6)s / 0.3s = 40 binned categories
+ */
+  def Binning {
+    val DoubleData = data.map(i => i.map(_.toDouble))
+    val data_vector = DoubleData.map(i => Vectors.dense(i))
+    val summary: MultivariateStatisticalSummary = Statistics.colStats(data_vector)
+    val br_summary = data.sparkContext.broadcast(summary)
+    data = DoubleData.map(i => i.zipWithIndex.map { case (data, index) => RangeDefinition(data, index).toString})
+      //1~40
+    def RangeDefinition(data: Double, index: Int): Int = {
+      val mean = summary.mean.toArray(index)
+      val deviation = sqrt(summary.variance.toArray(index))
+      var binned = 0
+      val begin = mean - 6 * deviation
+      val step = deviation * 0.3
+      for (i <- 0 until 40) {
+        if ((data >= begin + i * step) && (data < begin + (i + 1) * step)) {
+          binned = i
+        }
+        else if (data < begin) {
+          binned = -1
+        }
+        else {
+          binned = 100
+        }
+      }
+      binned
+      }
+    }
 
 }
 

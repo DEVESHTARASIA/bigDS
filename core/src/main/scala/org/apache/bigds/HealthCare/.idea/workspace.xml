@@ -2,289 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a51922d-3a23-4e33-96d1-940b2e32df59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWay.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWayTestResult.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FiExact/FiExact.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FiExact/TestResult.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/Wilcox/Alternative.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/Wilcox/WilcoxRankSumTest.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/fisher_exact_test.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/Alternative$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/Alternative.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$6$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$FpmParse$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$FpmParse$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/AssociationAnalysis.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/ChisqwithData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$8$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$9$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$15.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$16.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$18.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$19.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$20.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$21.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$$anonfun$Cleaning$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/DataContainer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExTestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$$anonfun$FiExactFeatures$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact$NullHypothesis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExact.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$3$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/FiExactTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$$anonfun$main$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/MissValueHandling.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/TestResult$class.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/TestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$11$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$choose$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxRankSumTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$4$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/Philips/stat/WilcoxonRankSum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/Alternative$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/Alternative.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$6$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$FpmParse$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$FpmParse$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/AssociationAnalysis.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/ChisqwithData.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$5$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$5$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$8$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$9$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$15.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$16.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$18.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$19.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$20.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4$$anonfun$21.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1$$anonfun$apply$mcVI$sp$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$$anonfun$Cleaning$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/DataContainer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExTestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$1$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$1$$anonfun$apply$1$$anonfun$apply$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$4$$anonfun$apply$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$$anonfun$FiExactFeatures$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact$NullHypothesis$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExact.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$3$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/FiExactTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$$anonfun$main$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/MissValueHandling.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/TestResult$class.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/TestResult.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$11$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$7$$anonfun$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$choose$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$$anonfun$pwilcox_small$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxRankSumTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$4$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$6$$anonfun$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$$anonfun$main$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/com/intel/bigds/stat/WilcoxonRankSum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$3$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$$anonfun$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.10/test-classes/org/com/intel/Philips/stat/FiExactTestSuite.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/AssociationAnalysis.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FreequentPatternMining.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/ChiSquareTest.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/ChiSquareTest.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/DataContainer/DataContainer.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/FiExactTest.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FiExactTest.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/MissValueHandling.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/MissValueHandling.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/stat/WilcoxonRankSum.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/WilcoxonRankSum.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$5.class" afterPath="$PROJECT_DIR$/target/scala-2.10/classes/org/apache/spark/mllib/fpm/FPGrowth$$anonfun$genFreqItems$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/output" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/apache/spark/mllib/fpm/FPGrowth.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/spark/mllib/fpm/FPGrowth.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.10" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.10" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Philips requirements.iws" />
@@ -347,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataContainer.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataContainer.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="393" max-vertical-offset="3090">
-              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state vertical-scroll-proportion="-0.2437186" vertical-offset="3007" max-vertical-offset="3585">
+              <caret line="194" column="31" selection-start-line="194" selection-start-column="31" selection-end-line="194" selection-end-column="31" />
               <folding>
                 <element signature="e#50#74#0" expanded="true" />
               </folding>
@@ -359,10 +78,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FreequentPatternMining.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FreequentPatternMining.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1230">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FoneWay.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWay.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1515">
+            <state vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="1515">
               <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#92#141#0" expanded="true" />
@@ -381,21 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KSTwoSampleTest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KSTwoSampleTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="411">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FDistribution.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalanlp/breeze_2.10/jars/breeze_2.10-0.10.jar!/breeze/stats/distributions/FDistribution.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="195">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -429,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/WilcoxTestSuite.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/TestResult.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/wilcox/Alternative.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/wilcox/WilcoxRankSumTest.scala" />
@@ -476,10 +194,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FiExact/FiExact.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/mllib/stat/test/PatchedTestResult.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/apache/spark/mllib/stat/MultivariateOnlineSummarizer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWayTestResult.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWay.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/Wilcox/WilcoxRankSumTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala" />
       </list>
     </option>
   </component>
@@ -1287,12 +1006,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32615384" sideWeight="0.49884704" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32615384" sideWeight="0.49884704" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1303,7 +1022,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.76710224" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33512682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33820137" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1423,6 +1142,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,6 +1212,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1230">
           <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1532,6 +1253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1230">
           <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1635,13 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FreequentPatternMining.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-core_2.10/jars/spark-core_2.10-1.2.0.jar!/org/apache/spark/Logging.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2" vertical-offset="0" max-vertical-offset="390">
@@ -1689,16 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="393" max-vertical-offset="3090">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
-          <folding>
-            <element signature="e#50#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/Wilcox/WilcoxRankSumTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1608" max-vertical-offset="4065">
@@ -1731,6 +1436,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/FreequentPatternMining.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/FoneWay/FoneWay.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1515">
@@ -1744,8 +1457,18 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/stat/KSTest/KSTwoSampleTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="411">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/intel/bigds/HealthCare/DataContainer/DataContainer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.2437186" vertical-offset="3007" max-vertical-offset="3585">
+          <caret line="194" column="31" selection-start-line="194" selection-start-column="31" selection-end-line="194" selection-end-column="31" />
+          <folding>
+            <element signature="e#50#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
