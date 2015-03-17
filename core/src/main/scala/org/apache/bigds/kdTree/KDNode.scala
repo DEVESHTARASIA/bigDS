@@ -5,8 +5,9 @@ import org.apache.spark.Logging
 /**
  * Created by datawlb on 2015/2/4.
  */
-// TODO: KDNode structure may change according to future changes
+///**
 class KDNode (
+  val id: Long,
   val label: Int,
   //val pointData: List[Double],//Vector,//Product2[HyperPoint, A],
   val pointData: Array[Double],
@@ -16,20 +17,23 @@ class KDNode (
   var leftNode: Option[KDNode],
   var rightNode: Option[KDNode],
   var parentNode: Option[KDNode]) extends Serializable with Logging {
-
+  // first node have no parent!!!
+  //parentNode match {
+  //  case None => throw new AssertionError("Current node have not a parent!")
+  //}
   require(splitAxis < pointData.length)
   (leftNode, rightNode) match {
     case (None, None) =>
-      this.isLeaf = true
+      //this.isLeaf = true
       this.leftNode = Option.empty
       this.rightNode = Option.empty
     case (Some(_), None) =>
       //require()
-      this.isLeaf = false
+      //this.isLeaf = false
       this.rightNode = Option.empty
     case (Some(_), Some(_)) =>
       //require()
-      this.isLeaf = false
+      //this.isLeaf = false
     case _ =>
       throw new AssertionError("A KD Tree has never a node with just a right child!")
   }
@@ -45,9 +49,12 @@ class KDNode (
 }
 object KDNode{
   /**
-   * Return a node.
+   * Return a node with the given node id (but nothing else set).
    */
+  //def emptyNode(nodeIndex: Int): KDNode = new KDNode(nodeIndex, none, none,
+  //  false, None, None, None, None)
   def apply(
+    id: Long,
     label: Int,
     //pointData: List[Double], //Product2[HyperPoint, A],
     pointData: Array[Double],
@@ -57,6 +64,8 @@ object KDNode{
     leftNode: Option[KDNode],
     rightNode: Option[KDNode],
     parentNode: Option[KDNode]): KDNode = {
-    new KDNode(label, pointData, splitAxis, range, isLeaf, leftNode, rightNode, parentNode)
+    new KDNode(id, label, pointData, splitAxis, range, isLeaf, leftNode, rightNode, parentNode)
   }
 }
+
+//*/

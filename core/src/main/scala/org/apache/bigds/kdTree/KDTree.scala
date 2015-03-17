@@ -7,6 +7,8 @@ import org.apache.spark.mllib.linalg.{Vectors, Vector}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
+import org.apache.spark.SparkContext._
+
 
 /**
  * Created by datawlb on 2015/2/5.
@@ -16,23 +18,101 @@ class KDTree extends Serializable with Logging {
   var dim = 0
   def run(input: RDD[LabeledPoint]): KDTreeModel = {
     this.dim = input.first().features.size
-    val kdNode: Option[KDNode] = createKDTree(input.collect(), 0, this.dim)
-    new KDTreeModel(kdNode,"")
+    var depth: Int = 0
+    val dataLength = input.count().toInt
+    val splitAxis: Int = KDTree.getSplitAxis(0, this.dim)
+    val (leftPoints, rightWithMedianPoints) = input.collect().sortBy(_.features(splitAxis)).splitAt(dataLength / 2)
+    val currentNode = rightWithMedianPoints.head
+    var rootNode: Option[KDNode] = Some(KDNode(1, currentNode.label.toInt, currentNode.features.toArray, 0, 1, false, None, None, None))
+    var currentParentNodes = ArrayBuffer(rootNode.get)
+    //currentParentNodes.append(rootNode.get)
+
+    val labeledInput = input.zipWithIndex().map(x => (x._2, x._1))
+    val inputMap = labeledInput.map(point => (1.toLong, point))
+    var keys = new Array[(Long, Int)](input.count().toInt)
+    for (i <- 0 to keys.length-1){
+      keys(i) = (1, splitAxis)
+    }
+    while (currentParentNodes.last.id < dataLength){
+      keys = createKDTree(labeledInput, keys, depth , this.dim, dataLength, rootNode, currentParentNodes)
+      depth = depth + 1
+      updateCurrentParentNodes(currentParentNodes)
+    }
+    //val kdNode: Option[KDNode] = createKDTree1(input.collect(), 0, this.dim)             ,Option[KDNode],ArrayBuffer[KDNode]   Array[LabeledPoint]
+    new KDTreeModel(rootNode,"")
   }
-  def createKDTree(subInput: Array[LabeledPoint], depth: Int = 0, dim: Int): Option[KDNode] = {
-    subInput.length match {
-      case 0 => Option.empty
-      case 1 => Some(KDNode(subInput.head.label.toInt, subInput.head.features.toArray, 0, 1, true, None, None, None))
 
-      case subInputLength =>
-        val splitAxis:Int = KDTree.getSplitAxis(depth, dim)
-        val (left, rightWithMedian) = subInput.sortBy(_.features(splitAxis)).splitAt(subInputLength/2)
-        val newDepth = depth+1
-        val current = rightWithMedian.head
-        val leftNode = createKDTree(left, newDepth, this.dim)
-        val rightNode = createKDTree(rightWithMedian.tail, newDepth, this.dim)
-        Option(KDNode(current.label.toInt, current.features.toArray, splitAxis, 1, false, leftNode, rightNode, None))
+  //def createKDTree(subInput: Iterable[(Long, LabeledPoint)], nodeID: Long, depth: Int = 0, dim: Int, rootNode: Option[KDNode], currentParentNodes: ArrayBuffer[KDNode]): (ArrayBuffer[(Long, Long)]) = {
+  def createKDTree(labeledInput: RDD[(Long, LabeledPoint)], keys: Array[(Long, Int)], depth: Int = 0, dim: Int, dataLength: Int, rootNode: Option[KDNode], currentParentNodes: ArrayBuffer[KDNode]): Array[(Long, Int)] = {
 
+    def updateKeys(keyPoints: ((Long, Int), Iterable[(Long, LabeledPoint)]), currentParentNodes: ArrayBuffer[KDNode]): ArrayBuffer[(Long, (Long, Int))] = {
+        val nodeID = keyPoints._1._1
+      if (nodeID >=currentParentNodes.head.id){
+        val subInputArray = keyPoints._2.toArray
+        val (pointsNB, pointsData) = keyPoints._2.unzip
+        val subInput1 = pointsData.toArray
+        val subInputLength = subInputArray.length
+        if (subInputLength == 1) {
+          ArrayBuffer((subInputArray.head._1, keyPoints._1))
+        }else{
+            val splitAxis: Int = KDTree.getSplitAxis(depth, dim)
+            val (leftPoints, rightWithMedianPoints) = subInputArray.sortBy(_._2.features(splitAxis)).splitAt(subInputLength / 2)
+            val newDepth = depth + 1
+            val currentPoint = rightWithMedianPoints.head
+            val leftArrayBuffer = new ArrayBuffer[(Long, (Long, Int))]()
+            val rightArrayBuffer = new ArrayBuffer[(Long, (Long, Int))]()
+            leftPoints.map(labeledPoint => (labeledPoint._1, (nodeID * 2, splitAxis))).copyToBuffer(leftArrayBuffer)
+            rightWithMedianPoints.tail.map(labeledPoint => (labeledPoint._1, (nodeID * 2 + 1, splitAxis))).copyToBuffer(rightArrayBuffer)
+            //(ArrayBuffer((nodeID, currentPoint)) ++ leftArrayBuffer ++ rightArrayBuffer, rootNode, currentParentNodes)
+            ArrayBuffer((currentPoint._1, keyPoints._1)) ++ leftArrayBuffer ++ rightArrayBuffer
+          }
+          //ArrayBuffer((nodePoints._2.head._1, nodePoints._1))
+      }else{
+        ArrayBuffer((keyPoints._2.head._1, keyPoints._1))
+      }
+
+    }
+      val input = labeledInput.sparkContext.parallelize(keys).zip(labeledInput)
+      val keyPoints  = input.groupByKey()
+        .flatMap(nodePoints =>
+        updateKeys(nodePoints, currentParentNodes)
+        ).sortByKey()
+      val newKeyPoints = keyPoints.values.collect()
+    if (depth > 0){
+      val minID = currentParentNodes.head.id * 2
+      val maxID = currentParentNodes.last.id * 2 + 1
+      val currentChildNodes =  keyPoints.values.zip(labeledInput).filter(point => point._1._1>=minID && point._1._1<=maxID).collectAsMap()
+      var isLeaf: Boolean = false
+      if (currentChildNodes.head._1._1 > dataLength/2){
+        isLeaf = true
+      }
+      currentParentNodes.foreach{ node =>
+        val id = node.id
+        val leftTemp = currentChildNodes.find(point => point._1._1==id*2)
+        if (leftTemp.nonEmpty){
+          node.leftNode = Some(KDNode(leftTemp.get._1._1, leftTemp.get._2._2.label.toInt, leftTemp.get._2._2.features.toArray, leftTemp.get._1._2, 1, isLeaf,None, None,None))
+        }
+        val rightTemp = currentChildNodes.find(point => point._1._1==id*2+1)
+        if (rightTemp.nonEmpty){
+          node.rightNode = Some(KDNode(rightTemp.get._1._1, rightTemp.get._2._2.label.toInt, rightTemp.get._2._2.features.toArray, rightTemp.get._1._2, 1, isLeaf,None, None,None))
+        }
+      }
+    }
+      newKeyPoints
+    }
+
+  def updateCurrentParentNodes(currentParentNodes: ArrayBuffer[KDNode]): Unit ={
+    val arrayLength = currentParentNodes.length
+    if (currentParentNodes.head.leftNode.nonEmpty || currentParentNodes.head.rightNode.nonEmpty){
+      for (i <- 0 to arrayLength-1){
+        val removeNode = currentParentNodes.remove(0)
+        if (!removeNode.isLeaf){
+          if (removeNode.leftNode.nonEmpty)
+            currentParentNodes.append(removeNode.leftNode.get)
+          if (removeNode.rightNode.nonEmpty)
+            currentParentNodes.append(removeNode.rightNode.get)
+        }
+      }
     }
   }
 
@@ -139,16 +219,18 @@ object KDTree extends Serializable with Logging {
     points(3) = new LabeledPoint(0.0, Vectors.dense(4, 7))
     points(4) = new LabeledPoint(0.0, Vectors.dense(8, 1))
     points(5) = new LabeledPoint(0.0, Vectors.dense(7, 2))
-    val sparkConf = new SparkConf().setAppName("DecisioinTree")
+    val sparkConf = new SparkConf().setAppName("kdTree")
     val sc = new SparkContext(sparkConf)
-    val rdd = sc.parallelize(points)
+    val rdd = sc.parallelize(points).cache()
     val tree = KDTree(rdd)
+    sc.stop()
     val treeFindNeighbours = new KDTree()
-    val testFindResult = treeFindNeighbours.findNeighbours(tree.topKDNode, Array(2,4.5), 3)
+    val testFindResult = treeFindNeighbours.findNeighbours(tree.topKDNode, Array(2,4.5), 1)
+
     testFindResult.foreach(x => println(x.distance))
     //val nodeList1 = tree.findNeighbours(HyperPoint(2, 4.5), k = 2) map (e => e.point)
     //val expected1 = List[HyperPoint](points(2))
   }
 }
 
-  //*/
+//*/
