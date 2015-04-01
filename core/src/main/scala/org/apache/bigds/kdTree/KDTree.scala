@@ -3,12 +3,12 @@ package kdTree
 import org.apache.spark.{SparkContext, SparkConf, Logging}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.rdd.RDD
-import org.apache.spark.mllib.linalg.{Vectors, Vector}
+import org.apache.spark.mllib.linalg.{DenseVector, Vectors, Vector}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 import org.apache.spark.SparkContext._
-
+import scala.io.Source
 
 /**
  * Created by datawlb on 2015/2/5.
@@ -33,7 +33,7 @@ class KDTree extends Serializable with Logging {
     for (i <- 0 to keys.length-1){
       keys(i) = (1, splitAxis)
     }
-    while (currentParentNodes.last.id < dataLength){
+    while (currentParentNodes.nonEmpty){
       keys = createKDTree(labeledInput, keys, depth , this.dim, dataLength, rootNode, currentParentNodes)
       depth = depth + 1
       updateCurrentParentNodes(currentParentNodes)
@@ -115,7 +115,42 @@ class KDTree extends Serializable with Logging {
       }
     }
   }
+  def localCreateKDTree(subInput: Array[LabeledPoint], depth: Int = 0, dim: Int,nodeID: Long): Option[KDNode] = {
+    subInput.length match {
+      case 0 => Option.empty
+      case 1 => Some(KDNode(nodeID, subInput.head.label.toInt, subInput.head.features.toArray, 0, 1, true, None, None, None))
 
+      case subInputLength =>
+        val splitAxis:Int = KDTree.getSplitAxis(depth, dim)
+        val (left, rightWithMedian) = subInput.sortBy(_.features(splitAxis)).splitAt(subInputLength/2)
+        val newDepth = depth+1
+        val current = rightWithMedian.head
+        val leftNode = localCreateKDTree(left, newDepth, this.dim, nodeID*2)
+        val rightNode = localCreateKDTree(rightWithMedian.tail, newDepth, this.dim, nodeID*2+1)
+        Option(KDNode(nodeID, current.label.toInt, current.features.toArray, splitAxis, 1, false, leftNode, rightNode, None))
+
+    }
+  }
+  // use little tree get every node's tree, return RDD(little tree nodeID, rootNode belong to little tree nodeID)
+  def run(input: RDD[LabeledPoint], firstTreeModel: KDTreeModel): RDD[(Long,Option[KDNode])] = {
+    val treeFindNeighbours = new KDTree()
+    val allNodesData = input.map{ point =>
+      val kNeighbours = treeFindNeighbours.findNeighbours(firstTreeModel.topKDNode,point.features.toArray,1)
+      (kNeighbours.head.id, point)
+    }.groupByKey()
+    .map{ nodesData =>
+      val nodeTreeModel = localCreateKDTree(nodesData._2.toArray, 0, this.dim, 1)
+      (nodesData._1, nodeTreeModel)
+    }
+    allNodesData
+  }
+  // use sample,generate little tree
+  def run(input: RDD[LabeledPoint], p1: Int = 10): Array[(Long, Option[KDNode])] ={
+    val nodesSample = input.takeSample(false,p1,scala.util.Random.nextLong())
+    val firstTreeModel = run(input.sparkContext.parallelize(nodesSample))
+    val rdd1 = run(input, firstTreeModel)
+    rdd1.collect()
+  }
   def findNeighbours(root: Option[KDNode], searchPoint: Array[Double], k: Int = 1): ArrayBuffer[searchedPoint] = {
     require(searchPoint != null, "Argument 'searchPoint' must not be null")
     //require(searchPoint.dim == dim, "Dimension of 'searchPoint' (%d) does not match dimension of this tree (%d).".format(searchPoint.dim, dim))
@@ -146,7 +181,7 @@ class KDTree extends Serializable with Logging {
         searchPath.append(tempNode.leftNode.get)
       if (tempNode.rightNode.nonEmpty)
         searchPath.append(tempNode.rightNode.get)
-      result.append(new searchedPoint(tempNode.label, tempNode.pointData, tempNode.distance(searchPoint)))
+      result.append(new searchedPoint(tempNode.id, tempNode.label, tempNode.pointData, tempNode.distance(searchPoint)))
     }
     if (searchPath.isEmpty || result.length < k){
       return null
@@ -159,7 +194,7 @@ class KDTree extends Serializable with Logging {
       val currentNode = searchPath.remove(searchPath.length - 1)
       val currentNodeDistance = currentNode.distance(searchPoint)
       if (currentNodeDistance < result.head.distance){
-        result(0) = new searchedPoint(currentNode.label, currentNode.pointData, currentNodeDistance)
+        result(0) = new searchedPoint(currentNode.id, currentNode.label, currentNode.pointData, currentNodeDistance)
         maxHeap(result, 0, result.length)
         if (currentNode.leftNode.nonEmpty)
           searchPath.append(currentNode.leftNode.get)
@@ -199,9 +234,9 @@ class KDTree extends Serializable with Logging {
 
 object KDTree extends Serializable with Logging {
 
-  def apply(dataInput: RDD[LabeledPoint]): KDTreeModel ={
+  def apply(dataInput: RDD[LabeledPoint]): Array[(Long, Option[KDNode])] ={
     val kdTree = new KDTree()
-    kdTree.run(dataInput)
+    kdTree.run(dataInput, 10)
   }
 
   def getSplitAxis(depth: Int, dim: Int): Int = {
@@ -212,6 +247,7 @@ object KDTree extends Serializable with Logging {
   }
 
   def main(args: Array[String]) {
+    /**
     val points = new Array[LabeledPoint](6)
     points(0) = new LabeledPoint(0.0, Vectors.dense(2, 3))
     points(1) = new LabeledPoint(0.0, Vectors.dense(5, 4))
@@ -219,17 +255,25 @@ object KDTree extends Serializable with Logging {
     points(3) = new LabeledPoint(0.0, Vectors.dense(4, 7))
     points(4) = new LabeledPoint(0.0, Vectors.dense(8, 1))
     points(5) = new LabeledPoint(0.0, Vectors.dense(7, 2))
+      */
+    val points = new ArrayBuffer[LabeledPoint]()
+    for (line <- Source.fromFile("C:\\Users\\Administrator\\Desktop\\horizonData.dat").getLines){
+      val tempArray = line.split("\t").map(x => x.toDouble).splitAt(2)._2
+      points.append(new LabeledPoint(0, new DenseVector(tempArray)))
+    }
+
     val sparkConf = new SparkConf().setAppName("kdTree")
     val sc = new SparkContext(sparkConf)
     val rdd = sc.parallelize(points).cache()
-    val tree = KDTree(rdd)
+    val z = KDTree(rdd)
     sc.stop()
     val treeFindNeighbours = new KDTree()
-    val testFindResult = treeFindNeighbours.findNeighbours(tree.topKDNode, Array(2,4.5), 1)
+//    val testFindResult = treeFindNeighbours.findNeighbours(tree.topKDNode, Array(2,4.5), 1)
 
-    testFindResult.foreach(x => println(x.distance))
+//    testFindResult.foreach(x => println(x.distance))
     //val nodeList1 = tree.findNeighbours(HyperPoint(2, 4.5), k = 2) map (e => e.point)
     //val expected1 = List[HyperPoint](points(2))
+    println("")
   }
 }
 
