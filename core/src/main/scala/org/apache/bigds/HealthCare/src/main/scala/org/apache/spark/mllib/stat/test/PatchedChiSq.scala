@@ -153,8 +153,8 @@ object PatchedChiSq extends Logging{
    * Pearson's goodness of fit test on the input observed and expected counts/relative frequencies.
    * Uniform distribution is assumed when `expected` is not passed in.
    */
-  def chiSquared(observed: Vector,
-      expected: Vector = Vectors.dense(Array[Double]()),
+  def ChiSquared_TwoSample(observed: Array[Double],
+      expected: Array[Double] = Array[Double](),
       methodName: String = PEARSON.name): PatchedChiSqTestResult = {
 
     // Validate input arguments
@@ -167,8 +167,8 @@ object PatchedChiSq extends Logging{
       logWarning("Chi-squared approximation may not be accurate due to low expected frequencies "
         + s" as a result of a large number of categories: $size.")
     }
-    val obsArr = observed.toArray
-    val expArr = if (expected.size == 0) Array.tabulate(size)(_ => 1.0 / size) else expected.toArray
+    val obsArr = observed
+    val expArr = if (expected.size == 0) Array.tabulate(size)(_ => 1.0 / size) else expected
     if (!obsArr.forall(_ >= 0.0)) {
       throw new IllegalArgumentException("Negative entries disallowed in the observed vector.")
     }

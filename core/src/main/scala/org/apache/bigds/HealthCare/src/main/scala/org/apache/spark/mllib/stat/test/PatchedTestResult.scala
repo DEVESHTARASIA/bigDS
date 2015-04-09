@@ -19,13 +19,7 @@ package org.apache.spark.mllib.stat.test
 
 import org.apache.spark.annotation.Experimental
 
-/**
- * :: Experimental ::
- * Trait for hypothesis test results.
- * @tparam DF Return type of `degreesOfFreedom`.
- */
-@Experimental
-trait PatchedTestResult[DF] {
+trait PatchedTestResult {
 
   /**
    * The probability of obtaining a test statistic result at least as extreme as the one that was
@@ -37,7 +31,6 @@ trait PatchedTestResult[DF] {
    * Returns the degree(s) of freedom of the hypothesis test.
    * Return type should be Number(e.g. Int, Double) or tuples of Numbers for toString compatibility.
    */
-  def degreesOfFreedom: DF
 
   /**
    * Test statistic.
@@ -67,8 +60,7 @@ trait PatchedTestResult[DF] {
       s"No presumption against null hypothesis: $nullHypothesis."
     }
 
-    s"degrees of freedom = ${degreesOfFreedom.toString} \n" +
-    s"statistic = $statistic \n" +
+    s"Test value statistic = $statistic \n" +
     s"pValue = $pValue \n" + pValueExplain
   }
 }
@@ -81,16 +73,16 @@ trait PatchedTestResult[DF] {
 class PatchedChiSqTestResult private[stat] (override val pValue: Double,
     val vCramer: Double,
     val Phi2: Double,
-    override val degreesOfFreedom: Int,
+    val degreesOfFreedom: Int,
     override val statistic: Double,
     val method: String,
-    override val nullHypothesis: String) extends PatchedTestResult[Int] {
+    override val nullHypothesis: String) extends PatchedTestResult {
 
   override def toString: String = {
     "Chi squared test summary:\n" +
       s"method: $method \n" +
       s"Cramer's V value is $vCramer \n" +
-      s"Phi square is $Phi2" +
+      s"Phi square is $Phi2 \n" +
       super.toString
   }
 }
