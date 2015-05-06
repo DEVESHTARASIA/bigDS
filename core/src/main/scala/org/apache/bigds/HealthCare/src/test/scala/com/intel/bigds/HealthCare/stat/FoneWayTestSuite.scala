@@ -20,7 +20,7 @@ class FoneWayTestSuite extends FunSuite with MLlibTestSparkContext {
     Array(0.5,0.9,2.4,0.8,0.4,2.2,3.9)
     )
     val data_rdd = sc.parallelize(data).map(i => i.map(j => j.toString()))
-    val rdd_container = new DataContainer(data_rdd)
+    val rdd_container = new DataContainer(data_rdd, Set("NAN","?"))
     val result = FoneWay.FoneWayTest(rdd_container)
     val pValue = result.pValue
     val statistic = result.statistic

@@ -47,6 +47,16 @@ object FoneWay extends Logging {
 
   }
 
+  /**
+   * Performs a 1-way ANOVA.
+
+   * The one-way ANOVA tests the null hypothesis that two or more groups have
+   * the same population mean.  The test is applied to samples from two or
+   * more groups, possibly with differing sizes.
+   * @param input
+   * @return
+   */
+
   //distributed computing of FoneWayTest
   //method "raw" means ignore all the losted data, F one way test is only applied to existing data (namely, each column may have different lengths)
   //method "filled" means each column has the same length. But the result depends on the data cleaning method
@@ -54,7 +64,7 @@ object FoneWay extends Logging {
     val observed = input.data.map(i => i.map(_.toDouble))//observed: RDD[Array[Double]]
     val sc = observed.sparkContext
     //val SumPerCol:Array[(Double, Double)], length = observed.first.length
-    val attribute_num = observed.first.length
+    val attribute_num = input.FeatureNum
     val zero = new Array[(Double,Double)](attribute_num).map{i => (0.0,0.0)}
     val SumPerCol = observed.treeAggregate(zero)(
       seqOp = (U, r) => {

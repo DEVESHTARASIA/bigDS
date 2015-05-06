@@ -8,7 +8,8 @@ import com.intel.bigds.HealthCare.stat
 
 
 object KSTest {
-  def main(args: Array[String]): Unit = {
+  def Test(args: Array[String]): Unit = {
+    println(args.mkString(","))
     println("KSTest tests check")
     if (args.length != 4) {
       System.err.println("4 parameters required: <spark master address> <numerical file address> <number of partitions> <BlankItems>")

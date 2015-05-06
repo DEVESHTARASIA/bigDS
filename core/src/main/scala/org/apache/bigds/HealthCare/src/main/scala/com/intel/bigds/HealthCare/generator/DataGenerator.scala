@@ -30,6 +30,8 @@ object DataGenerator {
 
   def main(args: Array[String]): Unit = {
 //blank items: "NAN, ,NA,nothing,."
+    println(args.length)
+    println(args.mkString(","))
     if (args.length != 9) {
       System.err.println("ERROR: expected 9 args\n<spark master> <path of data> <number of partitions> <number of records> <number of features> <numerical table name> <categorical table name> <lost ratio> <blank items>")
       System.exit(1)

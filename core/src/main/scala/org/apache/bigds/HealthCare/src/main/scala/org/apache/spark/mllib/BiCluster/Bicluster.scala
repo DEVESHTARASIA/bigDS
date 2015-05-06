@@ -132,7 +132,7 @@ class SparkBicluster(X: PatchedRowMatrix, nparts: Int) extends Serializable {
 
   @transient val sc = X.rows.context
 
-  // bool to double, corresponding to (TRUE=1, FALSE=0) in R in calculating
+  // bool to double, corresplonding to (TRUE=1, FALSE=0) in R in calculating
   private def b2d(b: Boolean): Double = {
     b match {
       case true => 1.0

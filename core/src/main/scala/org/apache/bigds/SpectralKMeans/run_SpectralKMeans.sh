@@ -1,0 +1,1 @@
+$SPARK_HOME/bin/spark-submit -v --executor-memory 160g --driver-memory 170g --class "com.Intel.bigDS.clustering.SpectralKMeansTest" --master spark://sr471:7180 ./target/scala-2.10/spectral-k-means-algorithm_2.10-0.0.1.jar spark://sr471:7180 hdfs://sr471:54311/user/chunnan/EN 224 0.5

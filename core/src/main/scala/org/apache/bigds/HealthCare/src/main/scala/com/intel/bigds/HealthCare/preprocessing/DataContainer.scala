@@ -95,11 +95,16 @@ object DataContainer {
 class DataContainer(var data: RDD[Array[String]], na:Set[String]) extends Serializable {
   data.cache()
   val FeatureNum = data.first.length
-  val ColFullLength = data.count
-  val ColLength = new Array[Int](FeatureNum).map(i => ColFullLength)
+  var ColFullLength:Long = _
+  var ColLength:Array[Long] = _
+  //val ColLength:Array[Int] = new Array[Int](FeatureNum).map(i => ColFullLength)
   val func = (aiter : Iterator[Array[String]], biter: Iterator[Int]) => {
     val seed = biter.next()
     aiter.map(i => (i, seed))
+  }
+  def LengthCalculation {
+    ColFullLength=data.count
+    ColLength = new Array[Int](FeatureNum).map(i => ColFullLength)
   }
   //CleanMethod: (replace by) mean, median, proportional, zero ; abandon
   //to implement: column-wise info one time + map filling

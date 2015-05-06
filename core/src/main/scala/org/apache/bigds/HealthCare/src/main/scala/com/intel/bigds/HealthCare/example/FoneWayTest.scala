@@ -7,7 +7,8 @@ import scala.collection.immutable.Set
 import com.intel.bigds.HealthCare.stat
 
 object FoneWayTest {
-  def main(args: Array[String]): Unit = {
+  def Test(args: Array[String]): Unit = {
+    println(args.mkString(","))
     println("F one way test")
     if (args.length != 4){
       System.err.println("4 parameters required: <spark master address> <numerical file address> <number of partitions> <BlankItems>")
