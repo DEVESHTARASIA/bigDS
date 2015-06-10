@@ -7,7 +7,7 @@ import org.scalatest.FunSuite
 
 import org.apache.spark.mllib.util.TestingUtils._
 //import org.
-
+/*
 
 class FoneWayTestSuite extends FunSuite with MLlibTestSparkContext {
 
@@ -30,5 +30,5 @@ class FoneWayTestSuite extends FunSuite with MLlibTestSparkContext {
   }
 
 }
-
+*/
 

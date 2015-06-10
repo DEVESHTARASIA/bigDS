@@ -70,7 +70,7 @@ object DataGenerator {
       case (startx, endx, rinit) =>
         val rand = new Random(rinit)
         for (i <- startx until endx) yield {
-          val miss_entries = for (k <- 0 until (nFeatures.value * 0.3).toInt) yield {
+          val miss_entries = for (k <- 0 until (nFeatures.value * LostRatio).toInt) yield {
             rand.nextInt(nFeatures.value)
           }
           val rand_data = for (j <- 0 until nFeatures.value) yield {
@@ -78,7 +78,14 @@ object DataGenerator {
               val blank_inx = rand.nextInt(br_blanklength.value)
               BlankItem(blank_inx)
             }
-            else abs(rand.nextGaussian()).toString()
+            else {
+              j%3 match {
+                case 0 => abs(rand.nextGaussian()).toString
+                case 1 => abs(rand.nextDouble() * 0.5 + 3).toString
+                case 2 => abs(rand.nextDouble()).toString
+              }
+              //abs(rand.nextGaussian()).toString()
+            }
           }
           rand.nextInt(2).toString() + "," + rand_data.mkString(",")
         }

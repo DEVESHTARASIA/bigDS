@@ -25,7 +25,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
 
   def this(sc: SparkContext, nparts: Int, rows: RDD[Vector]) = this(sc, nparts, rows, 0L, 0)
 
-  val m = numRows.toInt
+  //val m = numRows.toInt
   val n = numCols.toInt
 
   val blocks = rows.zipWithIndex
@@ -281,7 +281,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
           (i, arr)
       }
   }
-
+//use array(glomed row) to elliminate object overhead
   override def multiplyGramianMatrixBy(v: BDV[Double]): BDV[Double] = {
 
 
@@ -492,6 +492,9 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     }
   }*/
 
+  //collect and broadcast all the data to every core (partition)
+  //every core compute part*all(t), then collect
+  //exploit blas.dgemm to compute partition by partition rather than local aggregate
   def computeFullGramianMatrix(): Matrix = {
     // override def computeGramianMatrix(): Matrix = {
     val n = numCols().toInt

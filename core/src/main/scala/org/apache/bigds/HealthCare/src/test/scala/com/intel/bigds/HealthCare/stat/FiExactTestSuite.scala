@@ -13,7 +13,7 @@ import org.apache.spark.mllib.util.TestingUtils._
 
 import scala.util.Random
 
-
+/*
 class FiExactTestSuite extends FunSuite with MLlibTestSparkContext {
   def generateFiExactTestInput(sc: SparkContext, nPart: Int = 4, nPoints: Int, seed:Int, nFeatures: Int, methodName: String = "2x2"): RDD[LabeledPoint] = {
     val rnd = new Random(seed)
@@ -45,3 +45,4 @@ class FiExactTestSuite extends FunSuite with MLlibTestSparkContext {
     assert(true)
   }
 }
+*/

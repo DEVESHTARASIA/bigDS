@@ -2,8 +2,6 @@ package com.intel.bigds.HealthCare.stat
 
 //import breeze.stats.distributions.FDistribution
 
-import com.intel.bigds.HealthCare.preprocessing._
-import com.intel.bigds.HealthCare.stat.FoneWayTestResult
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkException, Logging}
 import org.apache.commons.math3.distribution.FDistribution

@@ -19,9 +19,10 @@ class BinningTestSuite extends FunSuite with MLlibTestSparkContext {
       Array(15.2,2.8,4.1,7.2)
     )
     val data_rdd = sc.parallelize(data.map(i=>i.map(_.toString)))
-    val container = new DataContainer(data_rdd)
-    container.Binning()
-    container.data.foreach(i => println(i.mkString(",")))
+    val container = new DataContainer(data_rdd, Set("?"))
+    val res = container.Binning()
+    println(res.data.map(i => i.mkString(",")).collect.mkString("\n"))
+    assert(true)
 
   }
 }

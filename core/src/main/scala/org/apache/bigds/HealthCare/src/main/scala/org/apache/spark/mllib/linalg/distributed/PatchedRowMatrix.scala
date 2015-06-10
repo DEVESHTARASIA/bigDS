@@ -27,7 +27,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
 
   def this(sc: SparkContext, nparts: Int, rows: RDD[Vector]) = this(sc, nparts, rows, 0L, 0)
 
-  val m = numRows.toInt
+  //val m = numRows.toInt
   val n = numCols.toInt
 
   val blocks = rows.zipWithIndex
@@ -47,7 +47,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     }
     (start, mb, nb, block)
   }.cache
-
+/*
   val blocks_svd = rows.zipWithIndex
     .glom
     .map { vecs =>
@@ -64,8 +64,60 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         vec.toArray.copyToArray(block, (i.toInt - start) * nb, nb)
     }
     (start, mb, nb, block)
+  }*/
+
+
+  def multiplyBlockBy(v: Array[Double]): Array[Double] = {
+
+    val vbr = sc.broadcast(v)
+    blocks.mapPartitions { iters => {
+      val vbr_value = vbr.value
+      iters.flatMap { case (start, mb, nb, arr) =>
+        val total = new Array[Double](mb)
+        // blas.dgemv("N", mb, nb, 1, arr, mb, vbr.value, 1, 0, total, 1)
+
+        var offset = 0
+        for (i <- 0 until mb) {
+          for (j <- 0 until nb) {
+            total(i) += arr(offset) * vbr_value(j)
+            offset += 1
+          }
+        }
+        total
+      }
+    }
+    }
+      .collect
   }
 
+  def multiplyTBlockBy(v: Array[Double]): Array[Double] = {
+
+    val vbr = sc.broadcast(v)
+
+    blocks.map {
+      case (start, mb, nb, arr) =>
+        val piece = vbr.value.slice(start, start + mb)
+        val total = new Array[Double](nb)
+        // blas.dgemv("T", mb, nb, 1, arr, mb, piece, 1, 0, total, 1)
+
+        var offset = 0
+        for (i <- 0 until mb) {
+          for (j <- 0 until nb) {
+            total(j) += arr(offset) * piece(i)
+            offset += 1
+          }
+        }
+
+        total
+    }.reduce((r1, r2) => r1.zip(r2).map { case (e1, e2) => e1 + e2 })
+    /*
+    .treeAggregate(new Array[Double](nCols))(
+      seqOp = (U, r) => {
+        r
+      }, combOp = (U1, U2) => U1.zip(U2).map{ case(u1, u2) => u1 + u2 }
+    )
+     */
+  }
 
   /** Updates or verifies the number of rows. */
   private def updateNumRows(m: Long) {
@@ -76,6 +128,16 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         s"The number of rows $m is different from what specified or previously computed: ${nRows}.")
     }
   }
+
+  override def computeColumnSummaryStatistics(): MultivariateStatisticalSummary = {
+    val summary = rows.treeAggregate(new PatchedMultivariateOnlineSummarizer)(
+      (aggregator, data) => aggregator.add(data),
+      (aggregator1, aggregator2) => aggregator1.merge(aggregator2))
+    updateNumRows(summary.count)
+    summary
+  }
+}
+
   /*
     // compute covariance matrix with result as a distributed matrix, i.e., RDD[(Int, Array[Double])]
     def computeDistributedCovariance(): RDD[(Int, Array[Double])] = {
@@ -205,7 +267,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
             (i, arr)
         }
     }*/
-
+/*
   // compute covariance matrix with result as a distributed matrix, i.e., RDD[(Int, Array[Double])]
   def computeDistributedCovariance(): RDD[(Int, Array[Double])] = {
 
@@ -234,7 +296,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
 
     // var rows_T: Array[Double] = new Array[Double](n * m2)
-    val rows_T = Array.ofDim[Double](n,m2)
+    val rows_T = Array.ofDim[Double](n, m2)
     val rows_collect = rows.collect()
     for (i <- 0 until m2) {
       for (j <- 0 until n) {
@@ -268,7 +330,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
       val (i, j) = get_x_y_from_tri_index(index, n)
 
       // val v = blas.ddot(m2, M, j * m2, 1, M, i * m2, 1)
-      val v = blas.ddot(m2, M(j), 1, M(i),1)
+      val v = blas.ddot(m2, M(j), 1, M(i), 1)
       Seq((i, (j, v)), (j, (i, v)))
     }
       .groupByKey(nparts)
@@ -282,8 +344,9 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         }
         (i, arr)
     }
-  }
+  }*/
 
+  /*
   override def multiplyGramianMatrixBy(v: BDV[Double]): BDV[Double] = {
 
     val vbr = sc.broadcast(v.toArray)
@@ -337,16 +400,10 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     )
      */
     BDV(result)
-  }
+  }*/
 
-  override def computeColumnSummaryStatistics(): MultivariateStatisticalSummary = {
-    val summary = rows.treeAggregate(new PatchedMultivariateOnlineSummarizer)(
-      (aggregator, data) => aggregator.add(data),
-      (aggregator1, aggregator2) => aggregator1.merge(aggregator2))
-    updateNumRows(summary.count)
-    summary
-  }
 
+/*
   def multiplyTBlockBy(v: Array[Double]): Array[Double] = {
 
     val vbr = sc.broadcast(v)
@@ -375,30 +432,9 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     )
      */
   }
+  */
 
-  def multiplyBlockBy(v: Array[Double]): Array[Double] = {
 
-    val vbr = sc.broadcast(v)
-
-    blocks.mapPartitions { iters => {
-      val vbr_value = vbr.value
-      iters.flatMap { case (start, mb, nb, arr) =>
-        val total = new Array[Double](mb)
-        // blas.dgemv("N", mb, nb, 1, arr, mb, vbr.value, 1, 0, total, 1)
-
-        var offset = 0
-        for (i <- 0 until mb) {
-          for (j <- 0 until nb) {
-            total(i) += arr(offset) * vbr_value(j)
-            offset += 1
-          }
-        }
-        total
-      }
-    }
-    }
-      .collect
-  }
 
   /* override def computeSVD(
      // private def computeMySVD(
@@ -500,7 +536,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
        SingularValueDecomposition(null, s, V)
      }
    }*/
-
+/*
   def computeFullGramianMatrix(): Matrix = {
     // override def computeGramianMatrix(): Matrix = {
     val n = numCols().toInt
@@ -697,3 +733,4 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
    * }
    */
 }
+*/

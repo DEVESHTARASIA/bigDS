@@ -20,13 +20,20 @@ import org.apache.commons.math3.linear._
 
 /**
  * Spectral K-means implementation using the Nystrom method.
+ * Based on this paper:
+ * Chen W Y, Song Y, Bai H, et al.
+ * Parallel spectral clustering in distributed systems[J].
+ * Pattern Analysis and Machine Intelligence, IEEE Transactions on, 2011, 33(3): 568-586.
+ * However, this implementation is not stable. Often, breeze or common math package would throw exception
+ * that says the matrix is not positive semidefinate. I still cant figure that out.
  */
 
 class SkNystrom(private var k:Int,
                      private var numDims:Int,
-                     private var partial: Double) extends KMeans with Serializable with Logging {
+                     private var partial: Double,
+                     private var sigma: Double) extends KMeans with Serializable with Logging {
 
-  def this() = this(2, -1, 0.2)
+  def this() = this(2, -1, 0.2, 1.0)
 
   def setk(k: Int): this.type = {
     this.k = k
@@ -43,29 +50,47 @@ class SkNystrom(private var k:Int,
     this
   }
 
+  def setSigma(sigma:Double): this.type = {
+    this.sigma = sigma
+    this
+  }
+
   /**
    *
-   * @param data
+   * @param data_row
    * @param nParts
    * @return RDD[(Vector, Vector)] consists of origianl vector and dimensionaly reduced vector
    */
-  def SpectralDimReduction(data: RDD[Vector], nParts: Int): RDD[(Vector, Vector)] = {
-    @transient val sc = data.context
+  def SpectralDimReduction(data_row: RDD[Vector], nParts: Int): RDD[(Vector, Vector)] = {
+    @transient val sc = data_row.context
+
+    val out = new PrintWriter("./watchout_Nystrom_inner.log")
+
+    val data = data_row
     if (numDims < 0) numDims = data.count.toInt
     val DataWithIndex = data.zipWithIndex().map(i => (i._2, new VectorWithNorm(i._1))).partitionBy(new HashPartitioner(nParts))
     //val l = (partial * numDims).toInt + 1
     val SplitArray = DataWithIndex.randomSplit(Array(partial, 1 - partial), 3)
     val LocalVec = SplitArray(0).collect
+    out.println("LocalVec selected randomly")
+    out.println(LocalVec.map(i => i._1 + " : " + i._2.vector.toArray.mkString(",")).mkString("\n"))
+
     val RddVec = SplitArray(1)
+
+    out.println("RDD vectors")
+    out.println(RddVec.map(i => i._1 + " : " + i._2.vector.toArray.mkString(",")).collect.mkString("\n"))
+
     val br_LocalVec = sc.broadcast(LocalVec)
     val l = LocalVec.length
+
     val l_br = sc.broadcast(l)
     val k_br = sc.broadcast(k)
     require(l > k && partial > 0 && partial < 1, s"matrix A too small. expect much larger than $k, in fact l=$l")
-    val MatA_dis = for (i <- 0 to l) yield{
+    val MatA_dis = for (i <- 0 until l) yield {
       val row_array = new Array[Double](l)
-      for (k <- 0 to l) {
-       row_array(k) = SkNystrom.fastSquaredDistance(LocalVec(i)._2, LocalVec(k)._2)
+      for (k <- 0 until l) {
+        val dis = SkNystrom.fastSquaredDistance(LocalVec(i)._2, LocalVec(k)._2)
+        row_array(k) = dis
       }
       (LocalVec(i)._1, row_array)
     }
@@ -75,36 +100,58 @@ class SkNystrom(private var k:Int,
       val lv = br_LocalVec.value
       iter.map { vector => {
         val column_l = for (i <- lv) yield {
-          SkNystrom.fastSquaredDistance(vector._2, i._2)
+          val dis = SkNystrom.fastSquaredDistance(vector._2, i._2)
+         /* if (dis==0.0) 0.0001
+          else dis*/
+          dis
         }
         (vector._1, column_l)
         }
       }
       }
     }
-    val a_dis = MatA_dis.map(i => (i._1, i._2.sum))
-    val b1_dis = MatBRdd_dis.treeAggregate(new Array[Double](l))(
-      seqOp = (U, r) => {
-        U.zip(r._2).map{i => i._1+i._2}
-      },
-      combOp = (U1, U2) => {
-        U1.zip(U2).map(i => i._1+i._2)
-      }
-    )
-    //val b1_dis_br = sc.broadcast(b1_dis)
-    val avg_row = a_dis.map(_._2).zip(b1_dis).map(i => (i._1 + i._2) / numDims)
-    val avg_row_br = sc.broadcast(avg_row)
-    val MatA_indexed = MatA_dis.zip(avg_row).map(i => (i._1._1, i._1._2.map{j => math.exp(- (j * j) / (2 * i._2 * i._2))}))
+
+    //val avg_row_br = sc.broadcast(avg_row)
+    val numDims_br = sc.broadcast(numDims)
+    val sigma_br = sc.broadcast(sigma)
+
+    val MatA_indexed = MatA_dis.map(i => {
+      if (i._1 >= numDims) throw new IllegalArgumentException("Given dimension incorrect! Set numDim=-1 to auto detect.")
+      (i._1, i._2.map{ j =>
+        val res = math.exp(- (j * j) / (2 * sigma * sigma))
+      /*  if (res==1.0) {
+         0.99
+        }
+        else res*/
+        res
+      })
+    })
     val MatBRdd_indexed = MatBRdd_dis.mapPartitions{iter => {
-      val B1_dis = avg_row_br.value
+      val B1_dis = sigma_br.value
+      val numDims = numDims_br.value
       iter.map{i => {
-        (i._1, i._2.zip(B1_dis).map(j => math.exp(-(j._1 * j._1) / (2 * j._2 * j._2))))
+        if (i._1 >= numDims) throw new IllegalArgumentException("Given dimension incorrect! Set numDim=-1 to auto detect.")
+        (i._1, i._2.map{j =>
+          val res = math.exp(- (j * j) / (2 * B1_dis * B1_dis))
+          /*if (res==1.0) {
+            0.99
+          }
+          else res*/
+          res
+        })
       }}
     }}
+
+
+    out.println("MatA_indexed")
+    out.println(MatA_indexed.map(i => i._1 + " : " + i._2.mkString(",")).mkString("\n"))
+    out.println("MatB_indexed")
+    out.println(MatBRdd_indexed.map(i => i._1 + " : " + i._2.mkString(",")).collect.mkString("\n"))
+
     val MatA = MatA_indexed.map(_._2)
     val MatAt = Array.ofDim[Double](l, l)
-    for (i <- 0 to l) {
-      for (j <- 0 to l) {
+    for (i <- 0 until l) {
+      for (j <- 0 until l) {
         MatAt(i)(j) = MatA(j)(i)
       }
     }
@@ -123,16 +170,15 @@ class SkNystrom(private var k:Int,
     val MatA_rev = breeze.linalg.inv(new DenseMatrix(l, l, MatAt.flatMap(i => i))).toArray
     val br_MatA_rev = sc.broadcast(MatA_rev)
     val br_b1 = sc.broadcast(b1)
-   // val D:(Array[Double], RDD[Double]) = _
-    //B{t}A{-1}b1
     val b3 = MatBRdd.mapPartitions{iter => {
       val MatA_r = br_MatA_rev.value
       val B1 = br_b1.value
+      val l = l_br.value
       iter.map{i => {
         var outer:Double=0.0
-        for (n <- 0 to l) {
+        for (n <- 0 until l) {
           var inner:Double=0.0
-          for (p <- 0 to l) {
+          for (p <- 0 until l) {
             inner += i(p) * MatA_r(n*l+p)
           }
           outer += inner * B1(n)
@@ -145,28 +191,39 @@ class SkNystrom(private var k:Int,
 
     val D_1 = a.zip(b1).map(i => i._1+i._2)
     val D_1_half = D_1.map(i => math.pow(i, -0.5))
+
+
     val D_1_half_br = sc.broadcast(D_1_half)
-    val D_2 = b2.zip(b3).map(i => i._1+i._2)
+    val D_2 = b2.zip(b3).map(i => {
+      val res = i._1+i._2
+      if (res==0.0) res
+      else res
+    })
     val A_0 = Array.ofDim[Double](l, l)
-    for (i <- 0 to l) {
-      for (j <- 0 to l) {
+    for (i <- 0 until l) {
+      for (j <- 0 until l) {
         A_0(i)(j) = D_1_half(i) * MatA(i)(j) * D_1_half(j)
       }
     }
-    val B_0 = MatBRdd.mapPartitions{iter => {
+
+
+    val B_00 = MatBRdd.mapPartitions{iter => {
       val d_1_half = D_1_half_br.value
       val L = l_br.value
       iter.map{i => {
-        for(j <- 0 to L) yield {
+        for(j <- 0 until L) yield {
           d_1_half(j) * i(j)
         }
       }}
-    }}.zip(D_2).map{case(a,b) => a.map(_*math.pow(b, -0.5))}.map(i => i.toArray)
+    }}
+    val B_0 = B_00.zip(D_2).map{case(a,b) => a.map(_*math.pow(b, -0.5))}.map(i => i.toArray)
+
+
 
     //[A_0 B_0t]
     val A_0_B_0 = sc.parallelize(A_0.zip(MatA_indexed.map(_._1))).union(B_0.zip(MatBRdd_indexed.map(_._1)))
 
-    //A_0{-1/2}
+
     val mat:RealMatrix = new Array2DRowRealMatrix(A_0, false)
     val eigen = new EigenDecomposition(mat)
     val A_half = eigen.getSquareRoot.getData
@@ -176,25 +233,41 @@ class SkNystrom(private var k:Int,
       val a_half = A_half_br.value
       val L = l_br.value
       iter.map{i => {
-        for(j <- 0 to L) yield {
+        for(j <- 0 until L) yield {
           a_half(j).zip(i).map{case(a,b) => a*b}.sum
         }
       }}
     }}
     //A_0{-1/2}*B_0*B_0t
-    val A_1_Bt = Array.ofDim[Double](l, l)
-    for (i <- 0 to l) {
-      for (j <- 0 to l) {
-        A_1_Bt(i)(j) = MatBRdd.map(m => m(i)*m(j)).sum()
+   // val A_1_Bt = Array.ofDim[Double](l, l)
+    val A_1_Bt = MatBRdd.zip(A_1).mapPartitions{iter =>
+      val l = l_br.value
+      iter.map{i =>
+        val col = Array.ofDim[Double](l, l)
+        for (m <-0 until l) {
+          for (n <- 0 until l) {
+            col(m)(n) = i._2(m) * i._1(n)
+          }
+        }
+        col
       }
-    }
-    //R
+    }.treeAggregate(Array.ofDim[Double](l,l))(
+      seqOp = (U, r) => {
+        U.zip(r).map(i => i._1.zip(i._2).map(i => i._1 + i._2))
+      },
+      combOp = (U1, U2) => {
+        U1.zip(U2).map(i => i._1.zip(i._2).map(i => i._1 + i._2))
+      }
+    )
+
     val R = Array.ofDim[Double](l, l)
-    for (i <- 0 to l) {
-      for (j <- 0 to l) {
+
+    for (i <- 0 until l) {
+      for (j <- 0 until l) {
         R(i)(j) = A_1_Bt(i).zip(A_half(j)).map{case(a,b)=> a*b}.sum + A_0(i)(j)
       }
     }
+
 
     val mat2:RealMatrix = new Array2DRowRealMatrix(R, false)
     val eigen2 = new EigenDecomposition(mat2)
@@ -202,18 +275,20 @@ class SkNystrom(private var k:Int,
     val Ar = eigen2.getD.getData.take(k).map(_.take(k)).map(i => i.map(j => math.pow(j, -0.5)))
     val Ar_br = sc.broadcast(Ar)
     val Ur_br = sc.broadcast(Ur)
-    //v_0
+
+
+
     val v_0 = A_0_B_0.mapPartitions{iter =>
       val ar = Ar_br.value
       val ur = Ur_br.value
       val a_half = A_half_br.value
       val k_0 = k_br.value
       iter.map{ i => {
-        val value = for (s <- 0 to k_0) yield{
+        val value = for (s <- 0 until k_0) yield{
           var outer = 0.0
-          for (m <- 0 to l) {
+          for (m <- 0 until l) {
             var inner = 0.0
-            for (n <- 0 to l) {
+            for (n <- 0 until l) {
               inner += i._1(n) * a_half(n)(m)
             }
             outer = inner * ur(m)(s)
@@ -224,18 +299,39 @@ class SkNystrom(private var k:Int,
       }
       }
     }
-    //compute normalized matrix u_0
-    val u_0 = v_0.map(i => {
-      val vec = Vectors.dense(i._2)
-      val norm = Vectors.norm(vec, 2)
-      (i._1, Vectors.dense(i._2.map(j => j/norm)))
-    })
 
-    DataWithIndex.map(i => (i._1, i._2.vector)).join(u_0).map(_._2)
+//In case that all the entries of a line in v_0 are zeros. Thus the normalization would generate NAN entries to disable KMeans later on.
+    def isallzero(input:Array[Double]): Boolean = {
+      var flag:Boolean = true
+      input.foreach(i => if(i!=0.0) flag=false)
+      flag
+    }
+    //compute normalized matrix u_0
+    val u_0 = v_0.mapPartitions { iter =>
+      val k_0 = k_br.value
+      iter.map { i => {
+        if (isallzero(i._2)) {
+          (i._1, Vectors.dense(Array.fill[Double](k_0)(1.0)))
+        }
+        else {
+          val vec = Vectors.dense(i._2)
+          val norm = Vectors.norm(vec, 2)
+          (i._1, Vectors.dense(i._2.map(j => j / norm)))
+        }
+      }
+      }
+    }
+
+
+    val finalres = DataWithIndex.map(i => (i._1, i._2.vector)).join(u_0).map(_._2)
+    finalres
   }
 
   override def run(data:RDD[Vector]): SpectralKMeansModel = {
     val reduced_k = SpectralDimReduction(data, data.partitions.length)
+   // println(reduced_k.count)
+   // println("length of proj2")
+   // System.exit(1)
     val data_to_cluster = reduced_k.map(_._2)
     //val kmeans_model = super.setK(k).run(data_to_cluster)
     val kmeans_model = super.run(data_to_cluster)
@@ -253,10 +349,12 @@ object SkNystrom extends Serializable {
              maxIterations: Int,
              runs: Int,
              initializationMode: String,
-             seed: Long): SpectralKMeansModel = {
+             seed: Long,
+             sigma: Double): SpectralKMeansModel = {
     new SkNystrom()
       .setK(k)
       .setk(k)
+      .setSigma(sigma)
       .setMaxIterations(maxIterations)
       .setRuns(runs)
       .setInitializationMode(initializationMode)

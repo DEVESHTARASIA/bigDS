@@ -9,7 +9,7 @@ import org.apache.spark.mllib.util.TestingUtils._
 
 class SpectralKMeansSuite extends FunSuite with MLlibTestSparkContext {
   import org.apache.spark.mllib.clustering.KMeans.{K_MEANS_PARALLEL, RANDOM}
-/*
+
   test("single cluster") {
     val data = sc.parallelize(Array(
       Vectors.dense(1.0, 2.0, 6.0, 1.0, 2.0, 6.0),
@@ -25,12 +25,14 @@ class SpectralKMeansSuite extends FunSuite with MLlibTestSparkContext {
 
     //val center = Vectors.dense(1.0, 3.0, 4.0, 1.0, 3.0, 4.0)
 
-    val model = SpectralKMeans.train(data, 1, 9, 0.3, 100, 1, K_MEANS_PARALLEL, 29)
+    val model = SpectralKMeans.train(data, 1, 9, 0.2, 100, 1, K_MEANS_PARALLEL, 29)
 
     assert(model.predict(Vectors.dense(1.0, 2.0, 6.0, 1.0, 2.0, 6.0)) == 0)
     assert(model.predict(Vectors.dense(1.1, 4.6, 7.0, 1.5, 2.1, 6.0)) == 0)
     assert(model.predict(Vectors.dense(1.0, 3.0, 0.0, 1.0, 3.0, 0.0)) == 0)
     assert(model.predict(Vectors.dense(1.3, 2.2, 6.4, 2.1, 2.3, 1.0)) == 0)
+/*
+    println(model.clusterCenters.map(i => i.toArray.mkString(",")).mkString("\n"))
 
     val rdd_res = model.predict(data).collect()
 
@@ -42,8 +44,8 @@ class SpectralKMeansSuite extends FunSuite with MLlibTestSparkContext {
     assert(rdd_res(5) == 0)
     assert(rdd_res(6) == 0)
     assert(rdd_res(7) == 0)
-    assert(rdd_res(8) == 0)
-  }*/
+    assert(rdd_res(8) == 0)*/
+  }
 
   test("three clusters") {
     val data_raw = Array(

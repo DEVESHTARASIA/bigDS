@@ -4,7 +4,7 @@ package org.apache.spark.mllib.clustering
 import java.io.PrintWriter
 
 import org.apache.spark.HashPartitioner
-import org.apache.spark.mllib.linalg.distributed.{PatchedRowMatrix, IndexedRowMatrix, IndexedRow}
+import org.apache.spark.mllib.linalg.distributed.{RowMatrix, PatchedRowMatrix, IndexedRowMatrix, IndexedRow}
 import scala.collection.mutable.PriorityQueue
 import org.apache.spark.Logging
 import org.apache.spark.mllib.linalg.{SparseVector, DenseVector, Vector, Vectors}
@@ -17,6 +17,12 @@ import scala.collection.mutable.ArrayBuffer
 
 /**
  * Spectral K-means implementation.
+ * Based on this paper:
+ * Chen W Y, Song Y, Bai H, et al.
+ * Parallel spectral clustering in distributed systems[J].
+ * Pattern Analysis and Machine Intelligence, IEEE Transactions on, 2011, 33(3): 568-586.
+ * However, this implementation is not stable. Often, breeze or common math package would throw exception
+ * that says the matrix is not positive semidefinate. I still cant figure that out.
  */
 
 class SpectralKMeans(private var k:Int,
@@ -53,12 +59,13 @@ class SpectralKMeans(private var k:Int,
   def SpectralDimReduction(data: RDD[Vector], nParts: Int): RDD[(Vector, Vector)] = {
     @transient val sc = data.sparkContext
     if (numDims < 0) numDims = data.count().toInt
-    val DataWithIndex = data.zipWithIndex().map(i => (i._2, new VectorWithNorm(i._1))).partitionBy(new HashPartitioner(nParts))
+    val DataWithIndex = data.zipWithIndex().map(i => (i._2, new VectorWithNorm(i._1))).partitionBy(new HashPartitioner(nParts)).cache()
     //retrieve & broadcast data RDD partition by partition to get mutual distance matrix
     //create a heap for sparsity creation
     var tempRDD = DataWithIndex.map(i => (i._1, (i._2,  new PriorityQueue[(Long, Double)])))
     val parts = DataWithIndex.partitions
     val t_value = (numDims * sparsity).ceil.toInt
+    val k_br = sc.broadcast(k)
     //val t_br = sc.broadcast(t_value)
     for (p <- parts) {
       val t_br = sc.broadcast(t_value)//Why I have to put this inside the for loop? If I put it outside, an unserializable error will be invoked.
@@ -109,11 +116,12 @@ class SpectralKMeans(private var k:Int,
       parse.toSeq
       }
     }
-
+    val numDims_br = sc.broadcast(numDims)
       //generate symmetric matrix
     val disData_sym = disData.groupByKey()
     .map { case (row, iter) => {
     val DistFac = new HashMap[Int, Double]
+    val numDims = numDims_br.value
     iter.map(j => {
       if (j._1 >= numDims) throw new IllegalArgumentException("Given dimension incorrect! Set numDim=-1 to auto detect.")
       DistFac.getOrElseUpdate(j._1.toInt, j._2)
@@ -136,60 +144,63 @@ class SpectralKMeans(private var k:Int,
       }
     }
     }
-/*
     val out = new PrintWriter("/home/yaochunnan/Intel-BDT/SpectralKMeans/ref/metadata.txt")
-    out.println("Similarity matrix")
     out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
     out.print(simiData.map(i => i._1 + ":" + " " + Vectors.dense(Vectors.sparse(numDims, i._2.keys.toArray, i._2.values.toArray).toArray).toArray.mkString(",")).collect.mkString("\n"))
-*/
+
     //Construct the diagonal matrix D (represented as a vector), and broadcast it
     val D_diag = simiData.mapValues(i => math.pow(i.values.sum, 0.5)).collect.toMap
     val D_br = sc.broadcast(D_diag)
 
+    val dims_br = sc.broadcast(numDims)
     val L = simiData.mapPartitions { iter => {
       val D_exp = D_br.value
+      val dims = dims_br.value
       iter.map { case (row_idx, simimap) => {
         val res = simimap.map { case (col_idx, value) => {
           var L_elements = 0.0
           val DSD = D_exp(row_idx) * value * D_exp(col_idx)
-          if(col_idx == row_idx) L_elements = DSD
+          if(col_idx == row_idx) L_elements =DSD
           else L_elements = DSD
           (col_idx, L_elements)
           }
         }
-        (row_idx.toInt, Vectors.sparse(numDims, res.keys.toArray, res.values.toArray))
+        (row_idx.toInt, Vectors.sparse(dims, res.keys.toArray, res.values.toArray))
         }
       }
       }
     }.map(i => (i._1.toLong, i._2))
-/*
+
     out.println("Laplacian Matrix")
     out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
     out.print(L.map(i => i._1 + ":" + " " + Vectors.dense(i._2.toArray).toArray.mkString(",")).collect.mkString("\n"))
-*/
 
-    val mat0 = new PatchedRowMatrix(sc, L.partitions.length, L.map(i => i._2), numDims, L.map(i => i._2).first.size)
+    //System.exit(1)
+
+    //val mat0 = new PatchedRowMatrix(sc, L.partitions.length, L.map(i => i._2), numDims, L.map(i => i._2).first.size)
+    val mat0 = new RowMatrix(L.map(i => i._2), numDims, numDims)
     //parallel eigensolver
     val mat1 = L.map(i => i._1).zip(mat0.computeSVD(k, true).U.rows)
-    //val mat1 = new IndexedRowMatrix(L).computeSVD(k, true).U.rows
-   // println("===============")
-  // println(mat1.map(i => i.index + "|" + i.vector.toArray.mkString(",")).collect.mkString("\n"))
-  // System.exit(1)
 
-    //normalize
-    val mat = mat1.map(i => {
-      val norm = Vectors.norm(i._2, 2)
-      (i._1, Vectors.dense(i._2.toArray.map(j => j / norm)))
-    })
-/*
-    out.println("Dimensionally reduced Matrix. Waiting to be processed by KMeans")
-    out.println("Row ID: Feature1, Feature2, Feature3")
-    out.print(mat.map(i => i._1 + ":" + i._2.toArray.mkString(",")).collect.mkString("\n"))
-    out.close()
-*/
-   // println("===============")
-   // println(mat.map(i => i._1 + "|" + i._2.toArray.mkString(",")).collect.mkString("\n"))
-   // System.exit(1)
+    def isallzero(input:Array[Double]): Boolean = {
+      var flag:Boolean = true
+      input.foreach(i => if(i!=0.0) flag=false)
+      flag
+    }
+    //compute normalized matrix u_0
+    val mat = mat1.mapPartitions { iter =>
+      val k_0 = k_br.value
+      iter.map { i => {
+        if (isallzero(i._2.toArray)) {
+          (i._1, Vectors.dense(Array.fill[Double](k_0)(1.0)))
+        }
+        else {
+          val norm = Vectors.norm(i._2, 2)
+          (i._1, Vectors.dense(i._2.toArray.map(j => j / norm)))
+        }
+      }
+      }
+    }
 
     DataWithIndex.map(i => (i._1, i._2.vector)).join(mat).map(_._2)
   }
@@ -197,7 +208,6 @@ class SpectralKMeans(private var k:Int,
   override def run(data:RDD[Vector]): SpectralKMeansModel = {
     val reduced_k = SpectralDimReduction(data, data.partitions.length)
     val data_to_cluster = reduced_k.map(_._2)
-    //val kmeans_model = super.setK(k).run(data_to_cluster)
     val kmeans_model = super.run(data_to_cluster)
     new SpectralKMeansModel(kmeans_model.clusterCenters, reduced_k, data.partitions.length)
   }

@@ -19,8 +19,8 @@ class KSTwoSampleTestSuite extends FunSuite with MLlibTestSparkContext {
       assert(result2.statistic ~== 0.42857 relTol 1e-4)
       assert(result2.pValue ~== 0.40559 relTol 1e-4)
 
-      val data1_rdd = sc.parallelize(data1.sortBy(i=>i).zipWithIndex.map(i => (i._1, 1, i._2)))
-      val data2_rdd = sc.parallelize(data2.sortBy(i=>i).zipWithIndex.map(i => (i._1, 2, i._2)))
+      val data1_rdd = sc.parallelize(data1.sortBy(i=>i).zipWithIndex.map(i => (i._1, 1, i._2.toLong)))
+      val data2_rdd = sc.parallelize(data2.sortBy(i=>i).zipWithIndex.map(i => (i._1, 2, i._2.toLong)))
       val result3 = KSTwoSampleTest.ks_2samp_sc(data1_rdd, data2_rdd)
       assert(result2.statistic ~== 0.42857 relTol 1e-4)
     //assert(result2.pValue ~== 0.40559 relTol 1e-4)

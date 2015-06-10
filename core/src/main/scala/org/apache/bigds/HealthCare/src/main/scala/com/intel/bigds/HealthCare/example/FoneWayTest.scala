@@ -1,13 +1,12 @@
 package com.intel.bigds.HealthCare.example
 
 import com.intel.bigds.HealthCare.preprocessing.DataContainer
-import com.intel.bigds.HealthCare.stat._
 import org.apache.spark.{SparkContext, SparkConf}
 import scala.collection.immutable.Set
-import com.intel.bigds.HealthCare.stat
+import com.intel.bigds.HealthCare.stat._
 
 object FoneWayTest {
-  def Test(args: Array[String]): Unit = {
+  def run(args: Array[String]): FoneWayTestResult = {
     println(args.mkString(","))
     println("F one way test")
     if (args.length != 4){
@@ -22,9 +21,27 @@ object FoneWayTest {
 
     val na = args(3).split(',').map(_.trim).toSet
 
-    val num_data = sc.textFile(num_address, nparts).map(i => i.split(",")) //RDD[Array[String]]
-    val data_filled = new DataContainer(num_data, na).allCleaning("Numerical", "mean")
-    val FoneWayResult = FoneWay.FoneWayTest(data_filled)
+    val num_data = sc.textFile(num_address, nparts).map(i => i.split(",").tail) //RDD[Array[String]]
+
+    val start = System.currentTimeMillis / 1000
+
+    val data_container = new DataContainer(num_data, na).LengthCalculation
+    val data_filled = data_container.allCleaning("Numerical", "mean").data
+
+    val FoneWayResult = FoneWay.FoneWayTest(data_filled.data, data_container.FeatureNum, data_container.ColLength)
+
+    val end = System.currentTimeMillis / 1000
     println(FoneWayResult.toString)
+    println("*********************************************************************************")
+    println("*********************************************************************************")
+    println("Test costs " + (end - start) + " s." )
+    println("*********************************************************************************")
+    println("*********************************************************************************")
+
+
+    FoneWayResult
+  }
+  def main(args: Array[String]): Unit ={
+    run(args)
   }
 }
