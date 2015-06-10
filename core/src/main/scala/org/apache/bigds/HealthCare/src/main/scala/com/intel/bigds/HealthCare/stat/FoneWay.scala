@@ -60,11 +60,10 @@ object FoneWay extends Logging {
   //distributed computing of FoneWayTest
   //method "raw" means ignore all the losted data, F one way test is only applied to existing data (namely, each column may have different lengths)
   //method "filled" means each column has the same length. But the result depends on the data cleaning method
-  def FoneWayTest(input: DataContainer/*, method:String = "raw"*/):FoneWayTestResult = {
-    val observed = input.data.map(i => i.map(_.toDouble))//observed: RDD[Array[Double]]
+  def FoneWayTest(input: RDD[Array[String]],attribute_num:Int, ColLength:Array[Long]/*, method:String = "raw"*/):FoneWayTestResult = {
+    val observed = input.map(i => i.map(_.toDouble))//observed: RDD[Array[Double]]
     val sc = observed.sparkContext
     //val SumPerCol:Array[(Double, Double)], length = observed.first.length
-    val attribute_num = input.FeatureNum
     val zero = new Array[(Double,Double)](attribute_num).map{i => (0.0,0.0)}
     val SumPerCol = observed.treeAggregate(zero)(
       seqOp = (U, r) => {
@@ -88,7 +87,7 @@ object FoneWay extends Logging {
       else {
         sumcol * sumcol / input.ColFullLength
       }*/
-      sumcol * sumcol / input.ColLength(index)
+      sumcol * sumcol / ColLength(index)
     }
     }.sum - alldata_sum_square / bign.toDouble
     val sswn = sstot - ssbn

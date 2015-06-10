@@ -1,6 +1,5 @@
 package com.intel.bigds.HealthCare.stat
 
-
 import org.apache.spark.mllib.stat.test.PatchedTestResult
 
 

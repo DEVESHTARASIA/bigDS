@@ -1,6 +1,5 @@
 package com.intel.bigds.HealthCare.stat
 
-
 import breeze.linalg.{DenseMatrix => BDM, max}
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.{SparkConf, SparkException, SparkContext}

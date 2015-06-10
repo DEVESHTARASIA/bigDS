@@ -8,6 +8,8 @@ import scala.util.Sorting.quickSort
 import scala.math.min
 import breeze.numerics.sqrt
 import org.apache.commons.math3.special.Erf
+import org.apache.commons.math3.stat.inference.MannWhitneyUTest
+
 
 /**
  * Created by lv on 14-5-29.
@@ -30,6 +32,11 @@ object WilcoxRankSumTest extends Serializable{
 //class WilcoxRankSumTest extends Serializable{
 //  implicit def Int2Double(v:RDD[Int]) = v.foreach{x=>x.toDouble}
 //  implicit def Long2Double(v:RDD[Long]) = v.foreach{x=>x.toDouble}
+
+  def math_compute(x: Array[Double], y:Array[Double]): Double = {
+    val test = new MannWhitneyUTest()
+    test.mannWhitneyUTest(x, y)
+  }
 
   def pnorm(z:Double, left_tail:Boolean=true):Double = {
 
@@ -104,7 +111,6 @@ object WilcoxRankSumTest extends Serializable{
       case Greater => pwilcox(w.toLong - 1, m, n, left_tail = false)
     }
     new WilcoxRankSumTestResult(w, pValue, "Two Attributes are statistically same")
-
   }
 
 
