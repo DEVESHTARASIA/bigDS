@@ -144,9 +144,9 @@ class SpectralKMeans(private var k:Int,
       }
     }
     }
-    val out = new PrintWriter("/home/yaochunnan/Intel-BDT/SpectralKMeans/ref/metadata.txt")
-    out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
-    out.print(simiData.map(i => i._1 + ":" + " " + Vectors.dense(Vectors.sparse(numDims, i._2.keys.toArray, i._2.values.toArray).toArray).toArray.mkString(",")).collect.mkString("\n"))
+    //val out = new PrintWriter("/home/yaochunnan/Intel-BDT/SpectralKMeans/ref/metadata.txt")
+    //out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
+    //out.print(simiData.map(i => i._1 + ":" + " " + Vectors.dense(Vectors.sparse(numDims, i._2.keys.toArray, i._2.values.toArray).toArray).toArray.mkString(",")).collect.mkString("\n"))
 
     //Construct the diagonal matrix D (represented as a vector), and broadcast it
     val D_diag = simiData.mapValues(i => math.pow(i.values.sum, 0.5)).collect.toMap
@@ -171,9 +171,9 @@ class SpectralKMeans(private var k:Int,
       }
     }.map(i => (i._1.toLong, i._2))
 
-    out.println("Laplacian Matrix")
-    out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
-    out.print(L.map(i => i._1 + ":" + " " + Vectors.dense(i._2.toArray).toArray.mkString(",")).collect.mkString("\n"))
+   // out.println("Laplacian Matrix")
+   // out.println("Row ID: Feature1,Feature2,Feature3,Feature4,Feature5,Feature6")
+   // out.print(L.map(i => i._1 + ":" + " " + Vectors.dense(i._2.toArray).toArray.mkString(",")).collect.mkString("\n"))
 
     //System.exit(1)
 

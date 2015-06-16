@@ -75,25 +75,26 @@ object ChiSquareTest {
 
   def run(args: Array[String]): RDD[(Int, Int,Double)] = {
     println(args.mkString(","))
-    println("KSTest tests check")
+    println("chisquare tests check")
     if (args.length != 5) {
       System.err.println("4 parameters required: <spark master address> <numerical file address> <number of partitions> <BlankItems> <topk>")
       System.exit(1)
     }
     val conf = new SparkConf()
       .setMaster(args(0))
-      .setAppName("KS test check")
+      .setAppName("chisquare test check")
       .registerKryoClasses(Array(classOf[Array[Double]], classOf[(Array[Double], Int)], classOf[(Int, Array[Double])]))
 
     val sc = new SparkContext(conf)
     // sc.addJar("lib/commons-math3-3.3.jar")
     val num_address = args(1)
+    //val num_address = "/home/yaochunnan/Intel-BDT/bigDS/core/src/main/scala/org/apache/bigds/HealthCare/ref/chisquared_data"
     val nparts = args(2).toInt
 
     val na = args(3).split(',').map(_.trim).toSet
     val k = args(4).toInt
 
-    val num_data = sc.textFile(num_address, nparts).map(i => i.split(",").tail) //RDD[Array[String]]
+    val num_data = sc.textFile(num_address, nparts).map(i => i.split(",")) //RDD[Array[String]]
 
     val start = System.currentTimeMillis / 1000
 
@@ -102,10 +103,18 @@ object ChiSquareTest {
     //materialize data_filled to gauge middle time
     data_filled.count()
 
+   // println(data_filled.map(i => i.mkString(",")).collect.mkString("\n"))
+   // System.exit(1)
+
     val middle = System.currentTimeMillis / 1000
 
     val data_aggregated = DataContainer.DataAggregate_items(data_filled)._2
-    val data_rdd = sc.parallelize(data_aggregated).zipWithIndex().map(i => (i._2.toInt, i._1))
+
+   // println(data_aggregated.map(i => i.mkString(",")).mkString("\n"))
+   // println("====")
+  //  System.exit(1)
+
+    val data_rdd = sc.parallelize(data_aggregated.zipWithIndex,nparts).map(i => (i._2.toInt, i._1))
 
 
     /* val data_col = new DataContainer(num_data, na).allCleaning("Numerical", "mean").data.map(_.map(_.toDouble))

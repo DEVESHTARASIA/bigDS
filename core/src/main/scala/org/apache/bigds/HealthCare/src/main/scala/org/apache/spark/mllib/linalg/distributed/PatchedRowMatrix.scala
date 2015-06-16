@@ -51,12 +51,9 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
   val blocks_svd = rows.zipWithIndex
     .glom
     .map { vecs =>
-
     val mb = vecs.length
     val nb = n
-
     var start = -1
-
     val block = new Array[Double](mb * nb)
     vecs.foreach {
       case (vec, i) =>
@@ -141,44 +138,34 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
   /*
     // compute covariance matrix with result as a distributed matrix, i.e., RDD[(Int, Array[Double])]
     def computeDistributedCovariance(): RDD[(Int, Array[Double])] = {
-
       val n = numCols().toInt
       val m = numRows().toInt
-
       val (m, mean) = rows.treeAggregate[(Long, BDV[Double])]((0L, BDV.zeros[Double](n)))(
         seqOp = (s: (Long, BDV[Double]), v: Vector) => (s._1 + 1L, s._2 += v.toBreeze),
         combOp = (s1: (Long, BDV[Double]), s2: (Long, BDV[Double])) =>
           (s1._1 + s2._1, s1._2 += s2._2))
-
       if (m <= 1) {
         sys.error(s"PatchedRowMatrix.computeDistributedCovariance called on matrix with only $m rows." +
           "  Cannot compute the covariance of a RowMatrix with <= 1 row.")
       }
       updateNumRows(m)
-
       mean :/= m.toDouble
-
       // We use the formula Cov(X, Y) = E[X * Y] - E[X] E[Y], which is not accurate if E[X * Y] is
       // large but Cov(X, Y) is small, but it is good for sparse computation.
       // TODO: find a fast and stable way for sparse data.
       val m1 = m - 1.0
       var alpha = 0.0
-
       // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
       var rows_T: Array[Double] = new Array[Double](n * m)
-
       val rows_collect = rows.collect()
       for (i <- 0 until m) {
         for (j <- 0 until n) {
           rows_T(j * m + i) = rows_collect(i).toArray(j)
         }
       }
-
       val shared_rows = sc.broadcast(rows_T)
       val triangle_index = sc.parallelize(0 until ((n * n + n) / 2), nparts)
-
       triangle_index.flatMap { index =>
-
         def get_x_y_from_tri_index(index: Int, n: Int): (Int, Int) = {
           // calculate x,y position in 2d matrix according to triangle index
           // ex: for 4 x 4 triangle (n=4)
@@ -188,16 +175,12 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
           //       9
           def tri_height_to_index(x: Int) = ((2L * n * x - x.toLong * x + x) / 2L).toInt
           def index_to_tri_height(sum: Int) = (((2L * n + 1) - sqrt((2L * n + 1L) * (2L * n + 1L) - 8L * sum)) / 2L).toInt
-
           val height = index_to_tri_height(index)
           val offset = index - tri_height_to_index(height)
           (height, height + offset)
         }
-
         val M = shared_rows.value
-
         val (i, j) = get_x_y_from_tri_index(index, n)
-
         val v = blas.ddot(m, M, j * m, 1, M, i * m, 1)
         Seq((i, (j, v)), (j, (i, v)))
       }
@@ -213,26 +196,20 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
             (i, arr)
         }
     }
-
      // compute gramian matrix with result as a distributed matrix, i.e., RDD[(Int, Array[Double])]
     def computeDistributedGramianMatrix(): RDD[(Int, Array[Double])] = {
-
       val n = numCols().toInt
       val m = numRows().toInt
-
       // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
       var rows_T: Array[Double] = new Array[Double](n * m)
-
       val rows_collect = rows.collect()
       for (i <- 0 until m) {
         for (j <- 0 until n) {
           rows_T(j * m + i) = rows_collect(i).toArray(j)
         }
       }
-
       val shared_rows = sc.broadcast(rows_T)
       val triangle_index = sc.parallelize(0 until ((n * n + n) / 2), nparts)
-
       triangle_index.mapPartitions { iters =>
         def get_x_y_from_tri_index(index: Int, n: Int): (Int, Int) = {
           // calculate x,y position in 2d matrix according to triangle index
@@ -243,7 +220,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
           //       9
           def tri_height_to_index(x: Int) = ((2L * n * x - x.toLong * x + x) / 2L).toInt
           def index_to_tri_height(sum: Int) = (((2L * n + 1) - sqrt((2L * n + 1L) * (2L * n + 1L) - 8L * sum)) / 2L).toInt
-
           val height = index_to_tri_height(index)
           val offset = index - tri_height_to_index(height)
           (height, height + offset)
@@ -251,7 +227,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         val M = shared_rows.value
         iters.flatMap{ index =>
         val (i, j) = get_x_y_from_tri_index(index, n)
-
         val v = blas.ddot(m, M, j * m, 1, M, i * m, 1)
         Seq((i, (j, v)), (j, (i, v)))
       }
@@ -270,31 +245,24 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
 /*
   // compute covariance matrix with result as a distributed matrix, i.e., RDD[(Int, Array[Double])]
   def computeDistributedCovariance(): RDD[(Int, Array[Double])] = {
-
     val n = numCols().toInt
-
     val (m, mean) = rows.treeAggregate[(Long, BDV[Double])]((0L, BDV.zeros[Double](n)))(
       seqOp = (s: (Long, BDV[Double]), v: Vector) => (s._1 + 1L, s._2 += v.toBreeze),
       combOp = (s1: (Long, BDV[Double]), s2: (Long, BDV[Double])) =>
         (s1._1 + s2._1, s1._2 += s2._2))
-
     if (m <= 1) {
       sys.error(s"PatchedRowMatrix.computeDistributedCovariance called on matrix with only $m rows." +
         "  Cannot compute the covariance of a RowMatrix with <= 1 row.")
     }
     updateNumRows(m)
-
     mean :/= m.toDouble
-
     // We use the formula Cov(X, Y) = E[X * Y] - E[X] E[Y], which is not accurate if E[X * Y] is
     // large but Cov(X, Y) is small, but it is good for sparse computation.
     // TODO: find a fast and stable way for sparse data.
     val m1 = m - 1.0
     var alpha = 0.0
-
     val m2 = numRows().toInt
     // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
-
     // var rows_T: Array[Double] = new Array[Double](n * m2)
     val rows_T = Array.ofDim[Double](n, m2)
     val rows_collect = rows.collect()
@@ -304,12 +272,9 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         rows_T(j)(i) = rows_collect(i).toArray(j)
       }
     }
-
     val shared_rows = sc.broadcast(rows_T)
     val triangle_index = sc.parallelize(0 until ((n * n + n) / 2), nparts)
-
     triangle_index.flatMap { index =>
-
       def get_x_y_from_tri_index(index: Int, n: Int): (Int, Int) = {
         // calculate x,y position in 2d matrix according to triangle index
         // ex: for 4 x 4 triangle (n=4)
@@ -319,16 +284,12 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         //       9
         def tri_height_to_index(x: Int) = ((2L * n * x - x.toLong * x + x) / 2L).toInt
         def index_to_tri_height(sum: Int) = (((2L * n + 1) - sqrt((2L * n + 1L) * (2L * n + 1L) - 8L * sum)) / 2L).toInt
-
         val height = index_to_tri_height(index)
         val offset = index - tri_height_to_index(height)
         (height, height + offset)
       }
-
       val M = shared_rows.value
-
       val (i, j) = get_x_y_from_tri_index(index, n)
-
       // val v = blas.ddot(m2, M, j * m2, 1, M, i * m2, 1)
       val v = blas.ddot(m2, M(j), 1, M(i), 1)
       Seq((i, (j, v)), (j, (i, v)))
@@ -348,17 +309,13 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
 
   /*
   override def multiplyGramianMatrixBy(v: BDV[Double]): BDV[Double] = {
-
     val vbr = sc.broadcast(v.toArray)
     val n = numCols().toInt
-
     val result = blocks_svd.mapPartitions { iters => {
       val vbr_value = vbr.value
       iters.map { case (start, mb, nb, arr) =>
-
         // val blas_result1 = new Array[Double](mb)
         // blas.dgemv("N", mb, nb, 1, arr, mb, vbr.value, 1, 0, blas_result1, 1)
-
         val piece = new Array[Double](mb)
         var offset = 0
         for (i <- 0 until mb) {
@@ -368,7 +325,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
           }
         }
         // if (piece.zipWithIndex.filter { case (v, i) => math.abs(v - blas_result1(i)) > 0.1 }.length > 0) println("Yes, we catch a big error!!!")
-
         /*
         val blas_result2 = new Array[Double](nb)
         blas.dgemv("T", mb, nb, 1, arr, mb, blas_result1, 1, 0, blas_result2, 1)
@@ -405,15 +361,12 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
 
 /*
   def multiplyTBlockBy(v: Array[Double]): Array[Double] = {
-
     val vbr = sc.broadcast(v)
-
     blocks.map {
       case (start, mb, nb, arr) =>
         val piece = vbr.value.slice(start, start + mb)
         val total = new Array[Double](nb)
         // blas.dgemv("T", mb, nb, 1, arr, mb, piece, 1, 0, total, 1)
-
         var offset = 0
         for (i <- 0 until mb) {
           for (j <- 0 until nb) {
@@ -421,7 +374,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
             offset += 1
           }
         }
-
         total
     }.reduce((r1, r2) => r1.zip(r2).map { case (e1, e2) => e1 + e2 })
     /*
@@ -444,14 +396,11 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
      maxIter: Int,
      tol: Double,
      mode: String): SingularValueDecomposition[RowMatrix, Matrix] = {
-
      val n = numCols().toInt
      require(k > 0 && k <= n, s"Request up to n singular values but got k=$k and n=$n.")
-
      object SVDMode extends Enumeration {
        val LocalARPACK, LocalLAPACK, DistARPACK = Value
      }
-
      val computeMode = mode match {
        case "auto" =>
          // TODO: The conditions below are not fully tested.
@@ -472,7 +421,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
        case "dist-eigs" => SVDMode.DistARPACK
        case _ => throw new IllegalArgumentException(s"Do not support mode $mode.")
      }
-
      // Compute the eigen-decomposition of A' * A.
      val (sigmaSquares: BDV[Double], u: BDM[Double]) = computeMode match {
        case SVDMode.LocalARPACK =>
@@ -491,9 +439,7 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
        // NewEigenValueDecomposition.symmetricEigs(rows, n, k, tol, maxIter)
        // NewEigenValueDecomposition.symmetricEigs(multiplyGramianMatrixBy, n, k, tol, maxIter)
      }
-
      val sigmas: BDV[Double] = brzSqrt(sigmaSquares)
-
      // Determine the effective rank.
      val sigma0 = sigmas(0)
      val threshold = rCond * sigma0
@@ -508,14 +454,11 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
        i += 1
      }
      val sk = i
-
      if (sk < k) {
        logWarning(s"Requested $k singular values but only found $sk nonzeros.")
      }
-
      val s = Vectors.dense(Arrays.copyOfRange(sigmas.data, 0, sk))
      val V = Matrices.dense(n, sk, Arrays.copyOfRange(u.data, 0, n * sk))
-
      if (computeU) {
        // N = Vk * Sk^{-1}
        val N = new BDM[Double](n, sk, Arrays.copyOfRange(u.data, 0, n * sk))
@@ -541,24 +484,19 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
     // override def computeGramianMatrix(): Matrix = {
     val n = numCols().toInt
     val m = numRows().toInt
-
     println(s"in patched gramian matrix, $n x $m")
     // Compute the upper triangular part of the gram matrix.
-
     // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
     var rows_T: Array[Double] = new Array[Double](n * m)
-
     val rows_collect = rows.collect()
     for (i <- 0 until m) {
       for (j <- 0 until n) {
         rows_T(j * m + i) = rows_collect(i).toArray(j)
       }
     }
-
     val shared_rows = sc.broadcast(rows_T)
     val avg = n / nparts
     val ind = n - avg * nparts
-
     val G = new Array[Double](n * n)
     val result = sc.parallelize(0 until nparts, nparts)
       .mapPartitions { iters =>
@@ -567,7 +505,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
         val offset = (if (ipart < ind) ipart * avg + ipart else ipart * avg + ind)
         val size = (if (ipart < ind) avg + 1 else avg)
         val arr = new Array[Double](size * n)
-
         // var cur = 0
         // val M = shared_rows.value
         // for(i <- 0 until size) {
@@ -586,39 +523,31 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
       case (offset, arr) =>
         arr.copyToArray(G, offset * n)
     }
-
     shared_rows.unpersist()
     Matrices.dense(n, n, G)
   }
-
   /* override def computeGramianMatrix(): Matrix = {
      // def computeTriangleGramianMatrix(): Matrix = {
      val n = numCols().toInt
      val m = numRows().toInt
-
      println(s"in patched gramian matrix, $n x $m")
      // Compute the upper triangular part of the gram matrix.
-
      // Transpose, convert from n(cols) * m(rows) => m(cols) * n(rows)
      var rows_T: Array[Double] = new Array[Double](n * m)
-
      val rows_collect = rows.collect()
      for (i <- 0 until m) {
        for (j <- 0 until n) {
          rows_T(j * m + i) = rows_collect(i).toArray(j)
        }
      }
-
      // val covA = new Array[Double](n * n)
      // for (i <- 0 until n) {
      //   for (j <- 0 until n) {
      //     covA(i*n+j) = blas.ddot(m, rows_T, j*m, 1, rows_T, i*m, 1)
      //   }
      // }
-
      val shared_rows = sc.broadcast(rows_T)
      val triangle_index = sc.parallelize(0 until ((n * n + n) / 2), nparts)
-
      val result = triangle_index.mapPartitions(iters => {
      def get_x_y_from_tri_index(index: Int, n: Int): (Int, Int) = {
        // calculate x,y position in 2d matrix according to triangle index
@@ -629,13 +558,11 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
        //       9
        def tri_height_to_index(x: Int) = ((2L * n * x - x.toLong * x + x) / 2L).toInt
        def index_to_tri_height(sum: Int) = (((2L * n + 1) - sqrt((2L * n + 1L) * (2L * n + 1L) - 8L * sum)) / 2L).toInt
-
        val height = index_to_tri_height(index)
        val offset = index - tri_height_to_index(height)
        (height, offset)
        // (height + offset, height)
      }
-
      val M = shared_rows.value
        iters.map { index =>
          val (i, j) = get_x_y_from_tri_index(index, n)
@@ -663,7 +590,6 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
          var i = n - arr.length
          var j = i * n + i
          arr.copyToArray(G, i * n + i)
-
          var k = 1
          while (k < arr.length) {
            j += n
@@ -671,13 +597,11 @@ class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, overrid
            k += 1
          }
        }
-
      // var noequal = 0
      // for(i <- 0 until n*n) {
      //   if (G(i)!=covA(i)) noequal += 1
      // }
      // println("--------------- <NOEQUAL == " + noequal + "> --------------------")
-
      // if(covA.equals(G)) {
      //   println("--------------------- YES, EQUALS -----------------------")
      // } else {

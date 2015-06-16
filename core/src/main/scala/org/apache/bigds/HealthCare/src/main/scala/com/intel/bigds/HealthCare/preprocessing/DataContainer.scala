@@ -37,10 +37,8 @@ object DataContainer extends Serializable{
     })
     res
   }
-
-//DataAggregate: aggregate each column to get the number of each categories in each feature, in order to do the two-sample correlation test followed
-  def DataAggregate_items(data:RDD[Array[String]]):(HashMap[Int, String], Array[Array[Double]]) = {
-    //val category = mutable.Map[String, Int]()
+  /*
+  def DataAggregate(data:RDD[Array[String]]):Array[Map[String, Int]] = {
     val attribute_num = data.first.length
     val zero = new Array[Map[String, Int]](attribute_num).map(i => Map[String, Int]())
     val aggregate_result = data.treeAggregate(zero)(
@@ -65,6 +63,37 @@ object DataContainer extends Serializable{
         U
       }
     )
+    aggregate_result
+  }
+*/
+//DataAggregate: aggregate each column to get the number of each categories in each feature, in order to do the two-sample correlation test followed
+  def DataAggregate_items(data:RDD[Array[String]]):(HashMap[Int, String], Array[Array[Double]]) = {
+    //val category = mutable.Map[String, Int]()
+    val attribute_num = data.first.length
+    val zero = new Array[Map[String, Int]](attribute_num).map(i => Map[String, Int]())
+    val aggregate_result = data.treeAggregate(zero)(
+      seqOp = (U, V) => {
+        val V_inx = V.zipWithIndex
+        for (m <- V_inx) {
+          U(m._2).update(m._1, U(m._2).getOrElse(m._1, 0) + 1)
+        }
+        U
+      },
+      combOp = (U1, U2) => {
+        val U = U1.zip(U2).map{case (u1, u2) => {
+          val list = u1.toList ++ u2.toList
+          val merged = list.groupBy(_._1).map{case (k,v) => (k,v.map(_._2).sum)}
+          val result = Map[String, Int]()
+          merged.map{case (a,b) => result(a) = b}
+          result
+        }
+        }
+        U
+      }
+    )
+
+   /// println(aggregate_result.map(i => i.toArray.map(j => j._1 + "->" + j._2).mkString(",")).mkString("\n"))
+    //System.exit(1)
     //aggregate_result: Array[Map[String, Int]]
     //return Array[Array[Int]]
     val categories = scala.collection.mutable.Set[String]()
@@ -82,6 +111,11 @@ object DataContainer extends Serializable{
         result(k)(m) = aggregate_result(k).getOrElse(catIdHash(m),0).toDouble
       }
     }
+   // println(catIdHash.toArray.map(i => i._2 + "->" + i._1).mkString("\n"))
+   // println(result.map(i => i.mkString(",")).mkString("\n"))
+    //System.exit(1)
+
+
     (catIdHash, result)
   }
 

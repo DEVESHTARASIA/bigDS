@@ -15,6 +15,8 @@ import java.io.PrintWriter
  * In this program, we generate pseudo clustering data using random numbers. First we generate
  * clustering centers randomly. Then based on these centers and indicated variance given by user,
  * we randomly generate data points surrounding its corresponding center.
+ *
+ * This function receives eight parameters:1.address of spark master 2.path of data storage at HDFS 3. number of points 4. length of features 5.table name at HDFS 6.number of clusters 7.value of variance
  */
 
 object DataGenerator {

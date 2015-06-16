@@ -26,7 +26,7 @@ object FoneWayTest {
     val start = System.currentTimeMillis / 1000
 
     val data_container = new DataContainer(num_data, na).LengthCalculation
-    val data_filled = data_container.allCleaning("Numerical", "mean").data
+    val data_filled = data_container.allCleaning("Numerical", "mean")
 
     val FoneWayResult = FoneWay.FoneWayTest(data_filled.data, data_container.FeatureNum, data_container.ColLength)
 
