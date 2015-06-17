@@ -22,7 +22,7 @@ object MissValueHandling {
 
     val sc = new SparkContext(conf)
 
-    val data = sc.textFile("/home/yaochunnan/Intel-BDT/bigDS/core/src/main/scala/org/apache/bigds/HealthCare/ref/testdata")
+    val data = sc.textFile("./ref/testdata")
                  .map(i => i.split(","))
     val data_container = new DataContainer(data,Set("?"))
     val data_filled = data_container.allCleaning("Categorical","proportional")

@@ -13,7 +13,7 @@ import java.io.PrintWriter
 
 import scala.util.Random
 
-//This program is extracted from SkLSH.scala in convenience for local debug
+//This program is extracted from org.apache.spark.mllib.SkLSH in convenience for local debug
 //Critical random projection progress
 object LSHPartial extends Serializable {
   def main(args: Array[String]): Unit = {

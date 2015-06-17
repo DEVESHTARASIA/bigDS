@@ -3,16 +3,16 @@ Health Care Support For BigDS
 
 This is a basic big data toolkit for health care implementations. We have implemented:
 
-	1. Chi-Square Two-sample Test, including calculation fo Cramer's V
+	1. Pair-wise Chi-Square Two-sample Test & Fisher's exact test, including calculation fo Cramer's V
 	2. Wilcox Rank-Sum Test
 	3. Association Rule Mining (FP-Growth)
-	4. Fisher's exact test
+	4. F one way Test (one way ANOVA)
 	5. Missing value handling (fill with mean\median\proportional random)
 
 Install
 =======
 
-You need to install Spark 1.2.0 or higher versions together with hadoop 1.0.4 as storage support.
+You need to install Spark 1.3.0 or higher versions together with hadoop 1.0.4 as storage support.
 
 Please set Spark's root as the environment variable on your computer, named SPARK_HOME
 
@@ -36,17 +36,21 @@ Build & package:
 Run tests
 -----------
 
-    Currently we have 5 main tests:
+    Currently we have 8 main runnable programs:
+	 [1] com.intel.bigds.HealthCare.example.KSTest_RDD_Scan
+ 	 [2] com.intel.bigds.HealthCare.generator.DataGenerator
+  	 [3] com.intel.bigds.HealthCare.example.FoneWayTest
+   	 [4] com.intel.bigds.HealthCare.example.KSTest
+    	 [5] com.intel.bigds.HealthCare.example.MissValueHandling
+     	 [6] com.intel.bigds.HealthCare.example.WilcoxonTest
+      	 [7] com.intel.bigds.HealthCare.example.ChiSquareTest
+         [8] com.intel.bigds.HealthCare.example.KSTest_Partition_br
 
-	 [1] com.intel.bigds.stat.ChisqwithData
-	 [2] com.intel.bigds.stat.WilcoxonRankSum
-	 [3] com.intel.bigds.stat.FiExactTest
-	 [4] com.intel.bigds.stat.MissValueHandling
-	 [5] com.intel.bigds.stat.AssociationAnalysis
+    [2] is used to generate synthetic data. [1][4][8]are three ways to compute pair-wise KS test. We finally use block cartesian method in [4], so does wilcoxonTest.[5]can be run locally, reading local test data under ./ref/test_data.
 
     Please refer to the details of each test in their source code. 
     
-    Please edit the bigDS/core/src/main/scala/org/apache/bigds/HealthCare/conf/healthcare-deployment-conf first. Configuring spark master address and port, as well as the location of test data file. In default, we have a test data file sample_data.csv under HealthCare/ref. 
+    Please edit the ./conf/healthcare-deployment-conf first. Configuring spark master address and port, as well as the location of test data file. To run test queries, we need to use "DataGenerator" to generate synthetic data into given HDFS address.  
 
     Under the HealthCare/ directory, choose a shell script to run tests. For example: 
 	./run_Chisq_test.sh

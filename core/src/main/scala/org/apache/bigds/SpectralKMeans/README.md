@@ -12,7 +12,7 @@ Run
 
 You need to install Spark 1.3.0 or higher versions together with hadoop 1.0.4 as storage support. 
 
-After building with sbt, use spark-submit tool to all functions. 
+After building with sbt, use spark-submit tool to submit applications to Spark cluster. 
 
 	Step1: Generate data using "DataGenerator".
 	Step2: Run KMeansTest, SkLSHTest, SkNystromTestor SpectralKMeansTest and see their processing time and clustering accuracy(WSSE value). KMeansTest directly calls Spark MLlib's KMeans class. It is used as a reference for clustering quality measurement.  

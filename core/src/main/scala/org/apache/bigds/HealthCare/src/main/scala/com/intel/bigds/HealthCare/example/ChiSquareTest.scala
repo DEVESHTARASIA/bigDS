@@ -12,6 +12,10 @@ import org.apache.spark.SparkContext._
 
 import scala.collection.mutable
 
+/**
+ * Pair-wise ChiSquareTest.
+ * First do data binning. Second group data into feature records, and blokify all the data to use cartesian method.
+ */
 object ChiSquareTest {
 
   def blockify(features: RDD[(Int, Array[Double])], nPart: Int): RDD[(Int, Array[(Int, Array[Double])])] = {

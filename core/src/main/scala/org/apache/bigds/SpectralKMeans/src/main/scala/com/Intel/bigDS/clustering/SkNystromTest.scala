@@ -10,6 +10,12 @@ import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.clustering.KMeans.{K_MEANS_PARALLEL, RANDOM}
 import java.io.PrintWriter
 
+/**
+ * Spectral Clustering based on Nystrom Optimization.
+ * This implementation is too unstable to use.
+ *
+ */
+
 object SkNystromTest extends Serializable {
   val NametoLabel = Map("C15" -> 0, "CCAT" -> 1, "E21" -> 2, "ECAT" -> 3, "GCAT" -> 4, "M11" -> 5)
   def main(args: Array[String]): Unit = {

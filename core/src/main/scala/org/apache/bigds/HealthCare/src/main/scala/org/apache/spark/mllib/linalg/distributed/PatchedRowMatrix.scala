@@ -20,6 +20,8 @@ import java.util.Arrays
 
 /**
  * Created by lv on 14-7-30.
+ * Modified by Chunnan on 15-5-15
+ * computeColumnSummaryStatistics is added. Useful in missing data filling and binning.
  */
 class PatchedRowMatrix(@transient val sc: SparkContext, val nparts: Int, override val rows: RDD[Vector],
                        private var nRows: Long,

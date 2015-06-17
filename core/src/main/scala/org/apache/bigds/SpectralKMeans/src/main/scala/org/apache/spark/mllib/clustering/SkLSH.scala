@@ -17,7 +17,7 @@ import java.io.PrintWriter
 
 /**
  * Spectral K-means implementation.
- * inner block similarity of sparsification has been added, according to
+ * inner block similarity sparsity has been added, according to
  * Chen W Y, Song Y, Bai H, et al.
  * Parallel spectral clustering in distributed systems[J].
  * Pattern Analysis and Machine Intelligence, IEEE Transactions on, 2011, 33(3): 568-586.

@@ -10,11 +10,19 @@ import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Vector,Vectors}
 import org.apache.spark.mllib.clustering.KMeans.{K_MEANS_PARALLEL, RANDOM}
 
+
+/**
+ * Created by yaochunnan on 5/29/15.
+ * Test of Spectral Clustering based on LSH(Random projection) on Spark.
+ *
+ * Parameters: address of spark master, address of data on HDFS, number of partitions, sigma is scalaing parameter converting distance matrix to similarity matrix, "sub partial" indicates t-nearrest ratio
+ */
+
 object SkLSHTest extends Serializable {
   def run(args: Array[String]): (Array[(Int, Vector)],Array[(Int, Int)]) = {
     println("Spectral KMeans method on Synthetic data")
-    if (args.length != 7) {
-      System.err.println("ERROR:Spectral Clustering: <spark master> <path to data> <nParts> <sparsity> <sigma> <number of clusters> <sub partial>")
+    if (args.length != 6) {
+      System.err.println("ERROR:Spectral Clustering: <spark master> <path to data> <nParts> <sigma> <number of clusters> <sub partial>")
     }
     println("===========================" + args.mkString(",") + "===============================")
     val conf = new SparkConf()
@@ -24,10 +32,9 @@ object SkLSHTest extends Serializable {
 
     val data_address = args(1)
     val nParts = args(2).toInt
-    val sparsity = args(3).toDouble
-    val sigma = args(4).toDouble
-    val numcluster = args(5).toInt
-    val subpartial = args(6).toDouble
+    val sigma = args(3).toDouble
+    val numcluster = args(4).toInt
+    val subpartial = args(5).toDouble
     val parsed = sc.textFile(data_address, nParts).map(_.split(",").map(_.toDouble)).map(Vectors.dense(_)).distinct.cache()
 
     val numDim = parsed.count

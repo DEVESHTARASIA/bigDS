@@ -10,7 +10,11 @@ import org.apache.spark.mllib.linalg.{Vector,Vectors}
 import org.apache.spark.mllib.clustering.KMeans.{K_MEANS_PARALLEL, RANDOM}
 import java.io.PrintWriter
 
-
+/**
+ * Test of Spectral Clustering based on t-nearrest neighbors.
+ *
+ * Parameters: address of Spark master, path to data on HDFS, number of partitions, sparsity is the ratio of t-nearest neighbors, sigma is scalaing parameter used to convert distance matrix to similarity matrix, numger of clusters
+ */
 object SpectralKMeansTest extends Serializable {
   val NametoLabel = Map("C15" -> 0, "CCAT" -> 1, "E21" -> 2, "ECAT" -> 3, "GCAT" -> 4, "M11" -> 5)
   def run(args: Array[String]): (Array[(Int, Vector)],Array[(Int, Int)]) = {
