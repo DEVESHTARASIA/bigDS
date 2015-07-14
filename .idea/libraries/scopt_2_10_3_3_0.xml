@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="scopt_2.10-3.3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/core/lib/scopt_2.10-3.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
